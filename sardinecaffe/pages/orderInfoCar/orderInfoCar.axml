@@ -1,0 +1,53 @@
+<view class="wrap">
+  <view class="title" a:if="{{goodsJson.has_real}}">配送地址</view>
+   <view class="itemList rec" a:if="{{goodsJson.has_real}}">
+    <navigator style="display: block; padding:15px 13px; color:#ba1c22" a:if="{{address == ''}}" url="/pages/addressEdit/addressEdit" hover-class="navigator-hover">      请添加地址    </navigator>
+    <navigator a:else url="/pages/addressCheck/addressCheck" hover-class="navigator-hover" class="itemTop">
+      <view class="type">[{{type[address.type]}}]</view>
+      <view class="address">{{address.province}}{{address.city}}{{address.area}}{{address.address}}</view>
+      <text class="phone">{{address.consignee}} {{address.cellphone}}</text>
+    </navigator>
+  </view>
+  <view class="title">订单详情</view>
+  <view class="item clearfix" a:for="{{goodsJson.goods}}" a:key="{{index}}">
+    <view class="ImgBox">
+      <image src="{{item.image}}" class="{{item.type ? 'caffe' : ''}}" mode="aspectFill"></image>
+    </view>
+    <view class="name">
+      <view>        {{item.goodsname}}      </view>
+    </view>
+    <view class="count">      ￥{{item.price}}      
+      <text>x{{item.buynums}}</text>
+      <block a:if="{{item.show_discount == 1}}">
+        <text class='show_discount'>八折</text>
+      </block>
+      <block a:if="{{item.show_discount == 2}}">
+        <text class='show_discount'>满199减50</text>
+      </block>
+    </view>
+  </view>
+  <view class="title">订单合计</view>
+  <view style="padding:5px 0;background: #fff">
+    <view class="cellBox">      商品总价      
+      <text>￥{{goodsJson.total}}</text>
+    </view>
+    <block a:if="{{goodsJson.has_real==1}}">
+      <view class="cellBox">        运费        
+        <text>￥{{freight || 0}}</text>
+      </view>
+    </block>
+    <view class="cellBox">      优惠      
+      <text>￥{{goodsJson.benifit}}</text>
+    </view>
+    <block a:if="{{goodsJson.has_real==1 && goodsJson.card.use_list.length!=0}}">
+      <navigator url='../cashCouponlist/cashCouponlist?goodsJson_sign={{goodsJson_sign}}' class="cellBox cellright">        现金券抵扣        
+        <text class='use_num' a:if="{{selectcard==''}}">{{goodsJson.card.use_list.length}}张可用</text>
+        <text class='reducecash' a:else>-￥{{selectcard[0].worth}}</text>
+      </navigator>
+    </block>
+    <view class="cellBox cellBox2">      实付金额      
+      <text>￥{{factTotal}}</text>
+    </view>
+  </view>
+  <view class="wxPay" bindtap="createFn">微信支付</view>
+</view>

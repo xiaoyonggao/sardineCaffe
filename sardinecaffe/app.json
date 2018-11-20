@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/userCenter/userCenter",
+    "pages/caffeVoucher/caffeVoucher",
+    "pages/voucherRules/voucherRules",
+    "pages/map/map",
+    "pages/caffeeCoupon/caffeeCoupon",
+    "pages/orderInfoCar/orderInfoCar",
+    "pages/caffeRecordList/caffeRecordList",
+    "pages/qinRecord/qinRecord",
+    "pages/message/message",
+    "pages/messageInfo/messageInfo"
+  ],
+  "window": {
+    "defaultTitle": "沙丁鱼咖啡"
+  }
+}

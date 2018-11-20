@@ -1,0 +1,141 @@
+.wrap_out {
+  padding: 18rpx 38rpx;
+}
+.wrap_out:first-child {
+  padding-top: 36rpx;
+}
+
+.caffe_list {
+  width: 100%;
+  height: 410rpx;
+  box-sizing: border-box;
+}
+
+.data_time {
+  font-size: 24rpx;
+  color: #999;
+  height: 34rpx;
+  line-height: 34rpx;
+  margin-bottom: 10rpx;
+}
+
+.data_time text {
+  display: inline-block;
+}
+
+.data_num {
+  margin-left: 6rpx;
+  float: left;
+}
+
+.order_num {
+  margin-right: 6rpx;
+  float: right;
+}
+
+.time_num {
+  float: left;
+  margin-left: 10rpx;
+}
+
+.caffe_good {
+  width: 100%;
+  height: 366rpx;
+  border: 1px solid #ececec;
+  box-sizing: border-box;
+  border-radius: 16rpx;
+  padding: 20rpx;
+}
+
+.caffe_good_up {
+  display: flex;
+  flex-direction: row;
+}
+
+.caffe_img {
+  width: 240rpx;
+  height: 240rpx;
+  box-sizing: border-box;
+}
+
+.caffe_img image {
+  width: 100%;
+  height: 100%;
+}
+
+.caffe_content {
+  flex: 1;
+  height: 240rpx;
+  text-align: right;
+  font-size: 30rpx;
+  padding-right: 8rpx;
+}
+
+.good_sign {
+  font-size: 20rpx;
+}
+
+.good_name {
+  margin-top: 36rpx;
+  color: #333;
+  line-height: 28rpx;
+}
+
+.good_price {
+  margin-top: 20rpx;
+  color: #333;
+}
+
+.good_num {
+  color: #999;
+  margin-top: 20rpx;
+}
+
+.pay_info {
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+
+.pay_btn {
+  float: left;
+  width: 156rpx;
+  height: 46rpx;
+  background: #d81c22;
+  border-radius: 48px;
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 46rpx;
+  margin-left: 50rpx;
+}
+
+.pay_btn_1 {
+  float: right;
+  width: 156rpx;
+  height: 46rpx;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 46rpx;
+}
+
+.name_info {
+  float: right;
+  color: #333;
+  margin-right: 8rpx;
+}
+
+.price_text {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.price_tip {
+  font-size: 22rpx;
+  font-weight: bold;
+  padding-left: 10rpx;
+}
+
+.price_info {
+  font-size: 30rpx;
+  font-weight: bold;
+}

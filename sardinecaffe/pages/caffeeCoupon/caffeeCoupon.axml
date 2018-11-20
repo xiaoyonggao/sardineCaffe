@@ -1,0 +1,49 @@
+<view class="wrap_out">
+  <view class="wrap {{isIpx?'wrapipx':''}}">
+    <view class='ad_wrap'>
+      <view class='discount_name'>{{caffeeTitle}} 
+        <text class='datato'></text>
+      </view>
+      <view class='discount_rules'>{{caffeeContent}}</view>
+    </view>
+    <block a:if="{{caffee_list.length}}">
+      <view a:for="{{caffee_list}}" a:key="{{index}}" class='caffee_out'>
+        <view class='caffee_img'>
+          <image src='{{item.bgimg}}'></image>
+        </view>
+        <view class='caffee_context'>
+          <view class='caffee_left'>
+            <text class='caffee_price'>
+              <text class='sign'>￥</text>{{item.price}}
+            </text>
+          </view>
+          <view class='caffee_right'>
+            <view class='line'></view>
+            <view class='caffee_en'>{{item.goodsename}}</view>
+            <view class='caffee_name'>{{item.goodsname}}</view>
+          </view>
+          <view class='tool'>
+            <view class='add' data-id="{{item.id}}" data-index="{{index}}" catchTap="addFn">
+              <text></text>
+            </view>
+            <view class='num'>{{item.chekcNum}}</view>
+            <view class='reduce' data-id="{{item.id}}" data-index="{{index}}" catchTap="reduceFn">
+              <text></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="count {{isIpx?'countipx':''}}">
+    <view class='count_in'>
+      <view class='total'>应付金额        
+        <text class='total_price'>￥{{discount_total}}</text>
+      </view>
+      <view class='coupon'>优惠金额        
+        <text class='coupon_price'>￥{{discount}}</text>
+      </view>
+      <view class='settlement' onTap='goToOrder'>结算(共{{count}}件)</view>
+    </view>
+  </view>
+</view>

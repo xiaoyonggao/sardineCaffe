@@ -1,0 +1,34 @@
+<view class="footerBar {{isIpx?'footerBarIPX':''}}">
+  <view class="tabBar" data-num='1' data-currentPage='{{currentPage}}' onTap="_goRedirect">
+    <block a:if="{{1==currentPage}}">
+      <text class='iconfont icon-icon--4'>
+      </text>
+      <text class='active'>沙丁鱼
+      </text>
+    </block>
+    <block a:else>
+      <text class='iconfont icon-icon--1'>
+      </text>
+      <text>沙丁鱼      
+      </text>
+    </block>
+  </view>
+  <view class="tabBar">
+     <view class="scan_icon"><image src="../../img/scan_icon.png" mode="aspectFill" /></view>
+     <view class="scan_text">扫描二维码</view>
+  </view>
+  <view class="tabBar" data-num='2' data-currentPage='{{currentPage}}' onTap="_goRedirect">
+    <block a:if="{{2==currentPage}}">
+      <text class='iconfont icon-icon_user_pressed'>
+      </text>
+      <text class='active'>我的      
+      </text>
+    </block>
+    <block a:else>
+      <text class='iconfont icon-icon--'>
+      </text>
+      <text>我的      
+      </text>
+    </block>
+  </view>
+</view>

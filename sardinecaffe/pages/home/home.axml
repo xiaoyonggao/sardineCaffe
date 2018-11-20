@@ -1,0 +1,55 @@
+<view >
+  <view class='homeTopBar'>
+    <navigator url="../caffeVoucher/caffeVoucher" class='btn1'>
+      <text class='caffee_'>我的优惠券</text>
+      <text class="caffee_number {{coffee_nums>=10 ? 'ellipse':''}}">{{coffee_nums}}</text>
+    </navigator>
+    <navigator url="../map/map" class='btn2'>
+      <text>附近</text>
+    </navigator>
+  </view>
+  <view class="wrap">
+      <swiper >
+        <block a:for="{{bannerArr}}" a:key="{{index}}">
+          <swiper-item>
+            <block a:if="{{item.type == 0}}">
+              <navigator url="/pages/caffeeCoupon/caffeeCoupon" hover-class="none">
+                <text class="wraptip">点击选购</text>
+                <image src="{{item.images}}" mode="aspectFit" class="slide-image" />
+              </navigator>
+            </block>
+            <block a:if="{{item.type== 1}}">
+              <navigator url="/pages/webView/webView?url={{item.url}}" hover-class="none">
+                <text class="wraptip">点击阅读</text>
+                <image src="{{item.images}}" mode="aspectFit" class="slide-image" />
+              </navigator>
+            </block>
+            <block a:if="{{item.type== 2}}">
+              <text class="wraptip">点击选购</text>
+              <navigator url="/pages/marketInfo/marketInfo?gid={{item.url}}" hover-class="none">
+                <image src="{{item.images}}" mode="aspectFit" class="slide-image" />
+              </navigator>
+            </block>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <view class="scrollX scrollX4">
+  <block a:if="{{xcx_index_goods.lenght!=0}}" a:for="{{xcx_index_goods}}" a:key="{{index}}">
+    <block a:if="{{item.position==1}}">
+      <navigator url="../caffeeCoupon/caffeeCoupon?id={{item.id}}" data-id="{{item.id}}" class="scroll_list" hover-class="navigator-hover">
+        <view class='bg_img'>
+          <image src='{{item.bgimg}}' mode="aspectFill"></image>
+        </view>
+        <view class='caffee_out'>
+          <view class='caffee_name'>{{item.goodsname}}</view>
+          <view class='caffee_price'>
+            <text class='buy_text1'>￥</text>{{item.price}}            
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </block>
+</view>
+  <tabbar isIpx="{{isIpx}}" currentPage='{{currentPage}}'/>
+</view>

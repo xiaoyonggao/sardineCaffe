@@ -1,0 +1,17 @@
+<view class="wrap">
+  <view class="mapBox">
+    <map id="myMap" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" circles="{{circles}}" markers="{{markers}}"  onRegionChange="changeMap"  show-location />
+  </view>
+  <view class="mapList">
+    <scroll-view class="scroll-view_H" scroll-y style="width: 100%;height: 100%;">
+      <view style="min-height: 330px;">
+        <view a:if="{{!markers.length}}" style="padding:30px 0;text-align: center;font-size: 14px; color: #888">暂无信息</view>
+        <view class="cell" a:for="{{markers}}" a:key="{{index}}">
+          <text class="t1">{{item.title}}</text>
+          <text class="t2">{{item.provincename}}{{item.cityname}}{{item.areaname}}{{item.address}}</text>
+          <text class="t3">{{item.distance}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

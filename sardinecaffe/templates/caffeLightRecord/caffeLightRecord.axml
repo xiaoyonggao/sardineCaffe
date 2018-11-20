@@ -1,0 +1,72 @@
+<template name='caffeRecordList'>
+  <view class="wrap_out" a:for="{{arrData}}" a:key="{{index}}">
+    <view class="caffe_list">
+      <view class='data_time'>
+        <text class='data_num'>{{item.createtime}}</text>
+        <text class='order_num'>1890657980</text>
+      </view>
+      <view class='caffe_good'>
+        <view class='caffe_good_up'>
+          <view class='caffe_img'>
+            <image mode="aspectFit" src="{{item.image}}"></image>
+          </view>
+          <view class='caffe_content'>
+            <view class='good_name'>{{item.cnname}}</view>
+            <view class='good_price'>
+              <text class='good_sign'>￥</text>{{item.money}}</view>
+            <view class='good_num'>x1</view>
+            <block a:if="{{item.status == 2}}">
+              <view class='pay_btn_1'>已完成</view>
+            </block>
+            <block a:if="{{item.status == 3}}">
+              <view class='pay_btn_1'>已退回</view>
+            </block>
+          </view>
+        </view>
+
+        <view class='pay_info'>
+          <view class='name_info'>
+            <text class='price_text'>{{item.paytype == 1 ? '优惠券支付' : '微信支付'}}</text>
+            <block a:if="{{item.paytype != 1}}">
+              <text class='price_tip'>￥</text>
+              <text class='price_info'>{{item.money}}</text>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<template name='lightFoodRecordList'>
+  <view class="wrap_out" a:for="{{arrData}}" a:key="{{index}}">
+    <view class="caffe_list">
+      <view class='data_time'>
+        <text class='data_num'>{{item.createtime}}</text>
+        <text class='order_num'>1890657980</text>
+      </view>
+      <view class='caffe_good'>
+        <view class='caffe_good_up'>
+          <view class='caffe_img'>
+            <image mode="aspectFit" src="{{item.image}}"></image>
+          </view>
+          <view class='caffe_content'>
+            <view class='good_name'>{{item.cnname}}</view>
+            <view class='good_price'>
+              <text class='good_sign'>￥</text>{{item.money}}</view>
+            <view class='good_num'>x1</view>
+          </view>
+        </view>
+        <view class='pay_info'>
+          <view class='pay_btn'>待付款</view>
+          <view class='name_info'>
+            <text class='price_text'>{{item.paytype == 1 ? '优惠券支付' : '微信支付'}}</text>
+            <block a:if="{{item.paytype != 1}}">
+              <text class='price_tip'>￥</text>
+              <text class='price_info'>{{item.money}}</text>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

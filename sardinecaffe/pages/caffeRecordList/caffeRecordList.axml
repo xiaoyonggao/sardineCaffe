@@ -1,0 +1,21 @@
+<import src="../../templates/caffeLightRecord/caffeLightRecord.axml"/>
+<scroll-view scroll-x="true">
+  <block a:if="{{arrData.length == 0}}">
+    <view class="none">暂无消费记录...</view>
+  </block>
+  <block a:else>
+    <template is="caffeRecordList" data="{{arrData}}"></template>
+  </block>
+  <block a:if="{{isHideLoadMore}}">
+    <view class="weui-loadmore">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+  </block>
+  <block a:if="{{isMore}}">
+    <view class='no_more'>
+      <text></text> 我是有底线的      
+      <text></text>
+    </view>
+  </block>
+</scroll-view>

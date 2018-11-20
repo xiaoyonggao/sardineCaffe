@@ -1,0 +1,18 @@
+<view class="wrap">
+  <image a:if="{{dataList.msg_1 == 0 && dataList.msg_2 == 0 && dataList.msg_3 == 0 && dataList.msg_4== 0 && dataList.msg_5== 0 }}" src="../../img/msgNone.png" class="msgNone" mode="widthFix"></image>
+  <navigator a:if="{{dataList.msg_1}}" url="../messageInfo/messageInfo?source=1" hover-class="navigator-hover" class="itemCellBox rec">        咖啡券通知 
+    <view class="num">{{dataList.msg_1}}</view>
+  </navigator>
+  <navigator a:if="{{dataList.msg_2}}" url="../messageInfo/messageInfo?source=2" hover-class="navigator-hover" class="itemCellBox rec">        关注动态 
+    <view class="num">{{dataList.msg_2}}</view>
+  </navigator>
+  <navigator a:if="{{dataList.msg_3}}" url="../messageInfo/messageInfo?source=3" hover-class="navigator-hover" class="itemCellBox rec">        新粉丝 
+    <view class="num">{{dataList.msg_3}}</view>
+  </navigator>
+  <navigator a:if="{{dataList.msg_4}}" url="../messageInfo/messageInfo?source=4" hover-class="navigator-hover" class="itemCellBox rec">        发布动态 
+    <view class="num">{{dataList.msg_4}}</view>
+  </navigator>
+  <navigator a:if="{{dataList.msg_5}}" url="../messageInfo/messageInfo?source=5" hover-class="navigator-hover" class="itemCellBox rec">        轻食券通知 
+    <view class="num">{{dataList.msg_5}}</view>
+  </navigator>
+</view>

@@ -1,0 +1,44 @@
+<view class="{{isIpx ? 'wrapIsx' : 'wrap'}}">
+  <view class="topSection">
+    <navigator url="/pages/editUserInfo/editUserInfo" hover-class="navigator-hover" class="userImgBox">
+      <image class="uImg" mode="aspectFill" src="{{userJson.avatar_image}}"></image>
+      <image class="edit2" mode="aspectFill" src="../../img/edit2.png"></image>
+    </navigator>
+    <view class="n">{{userJson.nickname}}      
+      <image a:if="1" src="../../img/{{userJson.sex == 1 ? 'b' : 'm'}}.png"></image>
+    </view>
+    <view class="levBox">
+      <image a:for="{{userJson.ulevel.sun}}" a:key="{{index}}" src="../../img/lv1.png" class="lev"></image>
+      <image a:for="{{userJson.ulevel.moon}}" a:key="{{index}}" src="../../img/lv2.png" class="lev"></image>
+      <image a:for="{{userJson.ulevel.star}}" a:key="{{index}}" src="../../img/lv3.png" class="lev"></image>
+    </view>
+  </view>
+ 
+  <view style="border-bottom: 1px solid #d9d9d9">
+    <navigator url="../caffeRecordList/caffeRecordList" hover-class="navigator-hover" class="itemCellBox rec" style="margin-bottom: 0rpx;">
+      <view class="itemBg6">咖啡消费记录</view>
+    </navigator>
+    <navigator url="../qinRecord/qinRecord" hover-class="navigator-hover" class="itemCellBox rec" style="margin-bottom: 5px;">
+      <view class="itemBg8">轻食消费记录</view>
+    </navigator>
+    <navigator url="../message/message" hover-class="navigator-hover" class="itemCellBox rec">
+      <view class="itemBg2">我的消息        
+        <view class="num" a:if='{{userJson.msg_nums}}'>{{userJson.msg_nums}}</view>
+      </view>
+    </navigator>
+    <navigator url="../accountSafe/accountSafe" hover-class="navigator-hover" class="itemCellBox rec">
+      <view class="itemBg10">绑定手机号</view>
+    </navigator>
+    <navigator url="../consultHelp/consultHelp" hover-class="navigator-hover" class="itemCellBox rec">
+      <view class="itemBg9">常见问题</view>
+    </navigator>
+    <view hover-class="navigator-hover" bindtap="makePhoneCall" data-phone="400-0266-667" class="itemCellBox rec">
+      <view class="itemBg4">客服与帮助</view>
+    </view>
+    <navigator url="../setting/setting" hover-class="navigator-hover" class="itemCellBox rec">
+      <view class="itemBg5">设置</view>
+    </navigator>
+  </view>
+</view>
+<tabBar-component id='tabBar' shopCount='{{shopCountSize}}' isIpx='{{isIpx}}' currentPage='{{currentPage}}' />
+<tabbar isIpx="{{isIpx}}" currentPage='{{currentPage}}'/>

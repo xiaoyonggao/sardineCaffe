@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tabbar":"/components/tabBar/index"
+    },
+    "defaultTitle": "个人中心"
+}

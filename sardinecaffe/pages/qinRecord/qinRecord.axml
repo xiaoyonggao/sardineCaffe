@@ -1,0 +1,61 @@
+<scroll-view>
+  <block a:if="{{!recordList.length}}">
+    <view class="none">暂无记录...</view>
+  </block>
+  <block a:if="{{recordList.length}}">
+    <view class="wrap_out" a:for="{{recordList}}" a:key="{{index}}" a:for-item="items">
+      <view class="caffe_list">
+        <view class='data_time'>
+          <text class='data_num'>{{items.addtime}}</text>
+          <text class='order_num'>{{items.orderno}}</text>
+        </view>
+        <view class='caffe_good_border'>
+          <block a:for="{{items.goodsinfo}}" a:key="{{index}}" a:for-item="item">
+            <view class='caffe_good_out'>
+              <view class='caffe_good {{items.goodsinfo.length >= 2 ? "" : "no_border"}}'>
+                <view class='caffe_good_up'>
+                  <view class='caffe_img'>
+                    <image mode="aspectFit" src="{{item[3]}}"></image>
+                  </view>
+                  <view class='caffe_content'>
+                    <view class='good_name'>{{item[0]}}</view>
+                    <view class='good_price'>
+                      <text class='good_sign'>￥</text>{{item[1]}}
+                    </view>
+                    <view class='good_num'>
+                      <text class='num_sign'>x</text>{{item[2]}}
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class='pay_info'>
+            <view class='order_detail' data-id="{{items.id}}" onTap="OrederList" a:if="{{items.status == 1}}">查看详情</view>
+            <view class='order_detail' data-id="{{items.id}}" onTap="OrederList" a:if="{{items.status == 3}}">退款中</view>
+            <view class='order_detail' data-id="{{items.id}}" onTap="OrederList" a:if="{{items.status == 4}}">已退款</view>
+            <view class='order_detail' data-id="{{items.id}}" onTap="OrederList" a:if="{{items.status == 5}}">退款驳回</view>
+            <view class='order_detail pay_btn' data-id="{{items.id}}" onTap="OrederList" a:if="{{items.status == 0 ||items.status == 2 }}">去付款</view>
+            <view class='name_info'>
+              <text class='price_text'>微信支付</text>
+              <text class='price_tip'>￥</text>
+              <text class='price_info'>{{items.money}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block a:if="{{isHideLoadMore}}">
+    <view class="weui-loadmore">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+  </block>
+  <block a:if="{{isMore}}">
+    <view class='no_more'>
+      <text></text> 我是有底线的      
+      <text></text>
+    </view>
+  </block>
+</scroll-view>

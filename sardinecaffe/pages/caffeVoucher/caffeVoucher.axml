@@ -1,0 +1,90 @@
+<import src="../../templates/caffeCashList/caffeCashList.axml" />
+<view class="wrap">
+  <view class='coupon_list'>
+    <view class='tabBar_pos'>
+      <view class='tabBar'>
+        <view class='tabOne' onTap='selected'>
+          <text class="{{selected?'active':''}}">咖啡券</text>
+        </view>
+        <!-- <view class='tabTwo' onTap='selected1'>
+          <text class="{{selected1?'active':''}}">商城券</text>
+        </view> -->
+        <view class='tabThree' onTap='selected3'>
+          <text class="{{selected3?'active':''}}">轻食券</text>
+        </view>
+        <view class='tabFour' onTap='selected2'>
+          <text class="{{selected2?'active':''}}">失效券</text>
+        </view>
+      </view>
+    </view>
+    <view class="coffee_list {{selected?'show':'hidden'}}">
+      <block a:if="{{!cardList.length}}">
+        <view class='noneList'>暂无信息...</view>
+      </block>
+      <view class="list {{item.isTouchMove ? 'touch-move-active' : ''}}" a:for="{{cardList}}" a:key="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
+        <view class="listCon" data-index="{{index}}">
+          <view class='sawtooth'>
+            <text a:for="{{12}}" a:key="{{index}}"></text>
+          </view>
+          <view class='list_loge'>
+            <block a:if='{{item.dataid ==0}}'>
+              <image src="../../img/cupon_loge.png" class='image_loge_1' />
+            </block>
+            <block a:else>
+              <image src="{{item.image}}" class='image_loge' />
+            </block>
+          </view>
+          <view class='list_text'>
+            <block a:if='{{item.bgimg!=""}}'>
+              <view class='list_imgae'>
+                <image src='{{item.bgimg}}'></image>
+              </view>
+            </block>
+            <view class='list_up_dowm'>
+              <view class='list_up {{item.dataid ==0 ? "list_up_2":""}}'>
+                <view class='list_up_bg'></view>
+              </view>
+              <view class='list_dowm'>
+                <view class='list_left'>
+                  <text class='time'>有效期至:{{item.etime}}</text>
+                </view>
+                <view class='list_right'>
+                  <text class="cn">{{item.cnname}}</text>
+                  <text class="en">{{item.enname}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='send_share' data-id="{{item.id}}" data-bgm="{{item.bgimg}}" data-type="{{item.dataid}}" catchtap='sendbtn'>
+          <view>赠送</view>
+        </view>
+      </view>
+      <view class="btn {{isIpx?'btnIpx':''}}" a:if="{{cardList.length}}">
+        <navigator url="/pages/voucherRules/voucherRules?voucher=0">咖啡券获取及使用规则</navigator>
+      </view>
+    </view>
+    <view class="crash_list {{selected1?'show':'hidden'}}">
+      <block a:if="{{!cardList.length}}">
+        <view class='noneList'>暂无信息...</view>
+      </block>
+      <template is="loseCashList" data="{{cardList}}"></template>
+      <view class="btn {{isIpx?'btnIpx2':''}}" a:if="{{cardList.length}}">
+        <navigator url="/pages/voucherRules/voucherRules?voucher=1">现金券获取及使用规则 </navigator>
+      </view>
+    </view>
+    <view class="light_food {{selected3?'show':'hidden'}}">
+      <block a:if="{{!cardList.length}}">
+        <view class='noneList'>暂无信息...</view>
+      </block>
+      <template is="loseCashList" data="{{cardList}}"></template>
+    </view>
+    <view class="lose_list {{selected2?'show':'hidden'}}">
+      <block a:if="{{!cardList.length}}">
+        <view class='noneList'>暂无信息...</view>
+      </block>
+      <template is="loseCashList" data="{{cardList}}"></template>
+    </view>
+    <template is="sendDialog" data='{{isIpx,DialogMask,caffeId}}'></template>
+  </view>
+</view>

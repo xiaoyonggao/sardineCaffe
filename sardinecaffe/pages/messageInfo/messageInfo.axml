@@ -1,0 +1,15 @@
+<view class="wrap" a:if="{{showOff}}">
+  <view a:if="{{!dataList.length}}" style="text-align: center;font-size: 30rpx; color:#888;padding:40px 0;">
+    <image class="msgNone" mode="widthFix" src="../../img/msgNone.png"></image>
+  </view>
+  <view class="list" a:for="{{dataList}}" a:key="{{index}}">
+    <view class="time">{{item.addtime}}</view>
+    <view class="content">{{item.shortdesc}}</view>
+    <block a:if="{{source == 1}}">
+      <view class="url" bindtap="jumpUrl" data-id="{{item.id}}">查看咖啡券</view>
+    </block>
+    <block a:else>
+      <view class="url" bindtap="jumpUrl" data-id="{{item.id}}" data-touid="{{item.dataid}}">点击查看</view>
+    </block>
+  </view>
+</view>

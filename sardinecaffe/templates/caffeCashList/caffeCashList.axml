@@ -1,0 +1,94 @@
+<template name='loseCashList'>
+  <view class="list" a:for="{{cardList}}" a:key="{{index}}" data-index="{{index}}">
+    <view class="listCon">
+      <view class='sawtooth'>
+        <text a:for="{{12}}" a:key="{{index}}"></text>
+      </view>
+      <view class='list_loge'>
+        <block a:if="{{item.type == 0}}">
+          <view class='price_coupon clearbg'>
+            <text class='sign_coupon'>￥</text>
+            <text class=''>{{item.worth}}</text>
+          </view>
+        </block>
+        <block a:if="{{item.type == 1}}">
+          <block a:if="{{item.dataid == 1}}">
+            <image src="{{item.image}}" class='image_loge gray' />
+          </block>
+          <block a:else>
+            <image src="../../img/cup_overtime.png" class='image_loge_1' />
+          </block>
+        </block>
+        <block a:if="{{item.type == 2}}">
+          <view class='price_coupon clearbg'>
+            <text class='sign_coupon graycolor'>￥</text>
+            <text class='graycolor'>{{item.worth}}</text>
+          </view>
+        </block>
+        <block a:if="{{item.type == 4 || item.type == 3 }}">
+          <view class='lightfood_coupon'>
+            <text class="lightfood_sign {{item.type ==3 ? 'graycolor':'' }}">￥</text>
+            <text class="lightfood_price {{item.type ==3 ? 'graycolor':'' }}">{{item.worth}}</text>
+          </view>
+        </block>
+      </view>
+      <view class='list_text'>
+        <block a:if='{{item.bgimg && item.bgimg != "" }}'>
+          <view class='list_imgae gray'>
+            <image src='{{item.bgimg}}'></image>
+          </view>
+        </block>
+        <view class='list_up_dowm'>
+          <view class='list_up {{item.type ==2 || item.type ==1 ||item.type ==3 ? "list_up_3":"list_up_2"}}'>
+            <view class='list_up_bg '></view>
+          </view>
+          <view class='list_dowm'>
+            <block a:if="{{item.type ==4 ||item.type ==3}}">
+              <view class='lightfood_left'>
+                <block a:if="{{item.type == 4}}">
+                  <view class='now_use' catchtap='getScanCode'>立即使用</view>
+                </block>
+                <view class="lightovertime {{item.type ==3 ? ' graycolor nameMargin':'' }}">有效期至:{{item.etime}}</view>
+              </view>
+              <view class='lightfood_right'>
+                <view class="lightname {{item.type ==3 ? 'graycolor':'' }}">轻食券</view>
+                <view class="lightlimit {{item.type ==3 ? 'graycolor':'' }}">消费满{{item.sill}}元可用</view>
+              </view>
+            </block>
+            <block a:else>
+              <view class='list_left'>
+                <text class="time {{item.type != 0 ? 'graycolor':''}}">有效期至:{{item.etime}}</text>
+              </view>
+              <view class='list_right'>
+                <text class="cn {{item.type != 0 ? 'graycolor':''}}">{{item.cnname}}</text>
+                <text class="en {{item.type != 0 ? 'graycolor':''}}">{{item.enname}}</text>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<template name='sendDialog'>
+  <view class='{{DialogMask ? "showmask" : "maskDialog"}}' catchtap='cancelSend'></view>
+  <view class=' {{DialogMask ? "showDialog" : "maskDialogCon"}}'>
+    <view class='Dialog_updowm'>
+      <view class='Dialog_up'>
+        <view class='listCon_out'>
+          <button class='list2_left' data-type="{{dataIdType}}" data-id="{{caffeId}}" open-type="share" hover-class="other-button-hover">
+            <view class='wechat'></view>
+            <text>微信</text>
+          </button>
+          <view class='list2_right' data-id="{{caffeId}}" catchtap='sendVoncher'>
+            <view class='community'></view>
+            <text>我的关注</text>
+          </view>
+        </view>
+      </view>
+      <view class='Dialog_dowm {{isIpx ? "Ipxpadding" :""}}' catchtap='cancelSend'>
+        <text>取消</text>
+      </view>
+    </view>
+  </view>
+</template>
