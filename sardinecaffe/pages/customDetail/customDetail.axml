@@ -1,0 +1,91 @@
+<scroll-view scroll-y class='scrollView' style="height:{{windowHeight}}px;">
+  <view class="wrap">
+    <view class='up_title'>
+      <block a:if="{{OrderDetail.status == 1}}">
+        <text class='finish_title'>已完成</text>
+        <text class='thank_title'>感谢您的支持，欢迎下次光临</text>
+      </block>
+      <block a:if="{{OrderDetail.status == 0 || OrderDetail.status ==2 }}">
+        <text class='finish_title'>未支付</text>
+        <text class='thank_title'>您的订单还未支付，请付款...</text>
+      </block>
+      <block a:if="{{OrderDetail.status == 3}}">
+        <text class='finish_title'>退款中</text>
+        <text class='thank_title'>您的订单正在退款中，请稍后...</text>
+      </block>
+      <block a:if="{{OrderDetail.status == 4}}">
+        <text class='finish_title'>已退款</text>
+        <text class='thank_title'>感谢您的支持，欢迎再次光临</text>
+      </block>
+      <block a:if="{{OrderDetail.status == 5}}">
+        <text class='finish_title'>退款失败</text>
+        <text class='thank_title'>抱歉，您的申请有误，无法退款</text>
+      </block>
+    </view>
+    <view class='down_gooddetail'>
+      <view class='good_out'>
+        <view class='goodinfo'>商品信息</view>
+        <view class='info_list' a:for="{{OrderDetail.goodsinfo}}" a:key="{{index}}">
+          <view class='good_up'>
+            <view class='goodname'>{{item.name}}</view>
+            <view class='goodprice'>
+              <text class='goodprice_sign'>￥</text>{{item.price}}</view>
+          </view>
+          <view class='good_down'>
+            <view class='num'>
+              <text class='num_sign'>x</text>{{item.num}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='payinfo'>
+        <view class='pay_info'>支付信息</view>
+        <view class='info_pay'>
+          <text class='coupon'>优惠金额</text>
+          <text class='coupon_price _price_color'><text class='goodprice_sign_1'>-￥</text>{{OrderDetail.discounted_money}}</text>
+        </view>
+        <block a:if="{{OrderDetail.card_money !='0.00'}}">
+          <view class='info_pay'>
+            <text class='coupon'>轻食券</text>
+            <text class='coupon_price _price_color'><text class='goodprice_sign_1'>-￥</text>{{OrderDetail.card_money}}</text>
+          </view>
+        </block>
+        <view class='info_pay'>
+          <view class='coupon'>实付金额</view>
+          <view class='coupon_price fact_price'>
+            <text class='goodprice_sign'>￥</text>{{OrderDetail.money}}</view>
+        </view>
+        <view class='info_pay'>
+          <view class='coupon'>支付方式</view>
+          <view class='coupon_price coupon_price_color'>{{OrderDetail.paytype}}</view>
+        </view>
+      </view>
+      <view class='order_info'>
+        <view class='pay_info'>订单信息</view>
+        <view class='info_pay'>
+          <text class='coupon'>下单时间</text>
+          <text class='coupon_price'>{{OrderDetail.addtime}}</text>
+        </view>
+        <view class='info_pay'>
+          <text class='coupon'>订单编号</text>
+          <text class='coupon_price'>{{OrderDetail.orderno}}</text>
+        </view>
+        <block a:if="{{OrderDetail.status == 1}}">
+          <view class='btn_back btn_back1' data-orderdetail='{{OrderDetail}}' onTap='withdrawPay'>申请退款</view>
+        </block>
+        <block a:if="{{OrderDetail.status == 0 || OrderDetail.status ==2 }}">
+          <view class='btn_back gotopay' data-orderno='{{OrderDetail.orderno}}' onTap='goToPay'>去付款</view>
+        </block>
+        <block a:if="{{OrderDetail.status == 3}}">
+          <view class='btn_back btn_back1' data-orderdetail='{{OrderDetail}}' onTap='withdrawPaying'>退款中</view>
+        </block>
+        <block a:if="{{OrderDetail.status == 4}}">
+          <view class='btn_back btn_back1' data-orderdetail='{{OrderDetail}}' onTap='withdrawPaying'>已退款</view>
+        </block>
+        <block a:if="{{OrderDetail.status == 5}}">
+          <view class='btn_back btn_back1' data-orderdetail='{{OrderDetail}}' onTap='withdrawPaying'>退款驳回</view>
+        </block>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<navigator url="../consultHelp/consultHelp" hover-class="none" class='question'>我有疑问</navigator>

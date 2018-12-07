@@ -32,7 +32,7 @@
     <navigator url="../consultHelp/consultHelp" hover-class="navigator-hover" class="itemCellBox rec">
       <view class="itemBg9">常见问题</view>
     </navigator>
-    <view hover-class="navigator-hover" bindtap="makePhoneCall" data-phone="400-0266-667" class="itemCellBox rec">
+    <view hover-class="navigator-hover" onTap="makePhoneCall" data-phone="400-0266-667" class="itemCellBox rec">
       <view class="itemBg4">客服与帮助</view>
     </view>
     <navigator url="../setting/setting" hover-class="navigator-hover" class="itemCellBox rec">

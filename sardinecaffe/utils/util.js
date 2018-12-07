@@ -66,13 +66,18 @@ function formatCurrency(content) {
   return result;
 }
 //手机号码正则匹配
-function checkMobile(sMobile) {
-  if (!(/^1\d{10}?$/.test(sMobile))) {
-    console.log('false')
-    return false;
+// function checkMobile(sMobile) {
+//   if (!(/^1\d{10}?$/.test(sMobile))) {
+//     return false;
+//   }
+//   return true;
+// }
+function checkMobile(str) {
+  if (!(/^1(3|4|5|7|8)\d{9}$/.test(str))) {
+    return false
+  } else {
+    return true
   }
-  console.log('true')
-  return true;
 }
 // 数字转字符串
 function formatNumber(n) {
@@ -117,6 +122,8 @@ function fetchApi(options, callback, callbackError, wxLoginCallback) {
     // },
     method: options.method || 'GET',
     success: function(response) {
+       my.hideLoading();
+       console.log("请求成功")
       var code = response.data
       var result = {
         data: response.data
@@ -133,10 +140,17 @@ function fetchApi(options, callback, callbackError, wxLoginCallback) {
       // }
     },
     fail: function(response) {
-      console.log(response)
+       my.hideLoading();
+      console.log("错误",response.data)
+      my.alert({
+        title:'亲',
+        content:'网络错误',
+        buttonText: '我知道了'
+      })
     },
     complete: function(res) {
-      my.hideLoading();
+      console.log("请求完成")
+       my.hideLoading();
     }
   })
 }

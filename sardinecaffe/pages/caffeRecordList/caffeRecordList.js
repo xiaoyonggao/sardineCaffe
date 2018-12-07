@@ -1,8 +1,9 @@
 import {
-  fetchApi
+  fetchApi,
+  getStorageSync
 } from '../../utils/util.js';
 const app = getApp();
-var page = 1, userData = '', is_has = true;
+var page = 1, userData = '', is_has = true,uid ='';
 Page({
   data: {
     arrData: [],
@@ -15,11 +16,11 @@ Page({
   onLoad: function() {
     is_has = true
     var t = this
-    // userData = wx.getStorageSync('userData');
+    userData = getStorageSync('userData'),uid=userData.id;
     fetchApi({
       url: 'Coffee/getOrderList',
       data: {
-        uid: '5579',
+        uid: uid,
         pagenum: t.data.pagenum,
         pagesize: t.data.pagesize
       }
@@ -72,7 +73,7 @@ Page({
       fetchApi({
         url: 'Coffee/getOrderList',
         data: {
-          uid: '5579',
+          uid: uid,
           pagenum: page,
           pagesize: t.data.pagesize
         }

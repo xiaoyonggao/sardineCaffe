@@ -1,0 +1,66 @@
+/* @import "../../templates/templeteToast/templeteToast.wxss"; */
+page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.wrap_in {
+  padding-top: 180rpx;
+  position: relative;
+}
+
+.wrap_in image {
+  display: block;
+  margin: 0 auto;
+}
+
+.under_text {
+  margin: o auto;
+  margin-top: 60rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.count {
+  width: 400rpx;
+  height: 400rpx;
+  background: #fff;
+  border-radius: 32rpx;
+  margin: 0 auto;
+  margin-top: 280rpx;
+}
+
+.count image {
+  padding-top: 36rpx;
+  display: block;
+  width: 260rpx;
+  height: 260rpx;
+  margin: 0 auto;
+}
+
+.tip_text text {
+  display: block;
+  color: #333;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.tip_text text.first {
+  margin-bottom: 6rpx;
+}
+.couponListmodle{
+ width: 480rpx;
+ margin: 0 auto;
+ margin-top: 120rpx;
+}

@@ -1,16 +1,37 @@
 {
   "pages": [
+    
     "pages/home/home",
     "pages/userCenter/userCenter",
+    "pages/qinRecord/qinRecord",
     "pages/caffeVoucher/caffeVoucher",
-    "pages/voucherRules/voucherRules",
+    "pages/making/making",
+    "pages/info/info",
     "pages/map/map",
     "pages/caffeeCoupon/caffeeCoupon",
     "pages/orderInfoCar/orderInfoCar",
     "pages/caffeRecordList/caffeRecordList",
-    "pages/qinRecord/qinRecord",
     "pages/message/message",
-    "pages/messageInfo/messageInfo"
+    "pages/messageInfo/messageInfo",
+    "pages/accountSafe/accountSafe",
+    "pages/bindPhone/bindPhone",
+    "pages/consultHelp/consultHelp",
+    "pages/setting/setting",
+    "pages/privacy/privacy",
+    "pages/about/about",
+    "pages/xieyi/xieyi",
+    "pages/feedback/feedback",
+    "pages/blackList/blackList",
+    "pages/addBlack/addBlack",
+    "pages/webView/webView",
+    "pages/open/open",
+    "pages/customDetail/customDetail",
+    "pages/applyRefund/applyRefund",
+    "pages/refundUpData/refundUpData",
+    "pages/caffeList/caffeList",
+    "pages/changePhone/changePhone",
+    "pages/voucherRules/voucherRules",
+    "pages/ctiyaccount/ctiyaccount"
   ],
   "window": {
     "defaultTitle": "沙丁鱼咖啡"

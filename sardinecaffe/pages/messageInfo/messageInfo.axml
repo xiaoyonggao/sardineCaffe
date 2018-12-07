@@ -6,10 +6,10 @@
     <view class="time">{{item.addtime}}</view>
     <view class="content">{{item.shortdesc}}</view>
     <block a:if="{{source == 1}}">
-      <view class="url" bindtap="jumpUrl" data-id="{{item.id}}">查看咖啡券</view>
+      <view class="url" onTap="jumpUrl" data-id="{{item.id}}">查看咖啡券</view>
     </block>
     <block a:else>
-      <view class="url" bindtap="jumpUrl" data-id="{{item.id}}" data-touid="{{item.dataid}}">点击查看</view>
+      <view class="url" onTap="jumpUrl" data-id="{{item.id}}" data-touid="{{item.dataid}}">点击查看</view>
     </block>
   </view>
 </view>

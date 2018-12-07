@@ -1,0 +1,6 @@
+<view class="wrap">
+  <view style="background: #fff;margin-top: 12px;">
+    <textarea bindinput="changeVal" value="{{contentVal}}" placeholder="非常感谢您的宝贵意见..." />
+  </view>
+  <view class="save" onTap="sendFn">提交反馈</view>
+</view>

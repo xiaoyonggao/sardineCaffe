@@ -1,0 +1,41 @@
+.topSection{overflow: hidden; padding-bottom: 24rpx; background: -webkit-radial-gradient(rgba(52,29,3,1), rgba(12,7,1,1))}
+.userImgBox{width: 140rpx; height: 140rpx; border-radius: 50%; position: relative; display: block;margin: 55rpx auto 10px auto}
+.userImgBox image.uImg{width: 140rpx; height: 140rpx;  border-radius: 50%;overflow: hidden;}
+.topSection{ text-align: center; color: #fff;font-size: 36rpx; }
+.edit2{width: 46rpx; height: 36rpx; position: absolute; right: -4rpx; bottom: 2rpx;}
+
+.cellBox{font-size: 26rpx;color: #fff;text-align: center; padding-top: 12rpx;}
+.cellBox view{display: inline-block;margin: 0 20px;}
+
+.cellBox view text{display: block;}
+.itemCellBox{position: relative;padding-left: 30rpx; height: 94rpx;font-size: 29rpx; line-height: 94rpx;background: #fff; border-bottom: 1px solid #f2f2f2 }
+.itemCellBox view{ float: right;padding-right: 14px;  }
+.itemCellBox.rec{ padding-right: 30px;}
+.itemCellBox.rec view{padding-right: 0px;}
+.itemCellBox.rec:after{
+	content: '';
+	display: block;
+	width: 7px;
+    height: 7px;
+    border: 1px solid #999999;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    border-top: none;
+    border-left: none;
+    position: absolute; right: 14px; top: 50%;margin-top: -5px;
+}
+.userImg view{width: 138rpx; height: 138rpx; margin-top: 12rpx; border-radius: 50%;overflow: hidden;}
+.userImg view image{width: 140rpx; height: 140rpx; border-radius: 50%;}
+.userImg{height: 160rpx; line-height: 160rpx;}
+
+.lev{width: 24rpx; height: 24rpx;margin-right: 4px;}
+
+
+
+
+
+
+
+
+

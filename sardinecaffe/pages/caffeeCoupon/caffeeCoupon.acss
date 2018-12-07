@@ -18,9 +18,9 @@
 }
 
 .discount_name {
-  font-size: 44rpx;
+  font-size: 40rpx;
   color: #fff;
-  padding: 18rpx 0rpx 5rpx 40rpx;
+  padding: 18rpx 0rpx 0rpx 40rpx;
   font-weight: bold;
 }
 
@@ -172,6 +172,7 @@
   font-size: 28rpx;
   color: #333;
   margin-top: 10rpx;
+  line-height:45rpx;
 }
 
 .total_price {
@@ -194,10 +195,10 @@
   height: 86rpx;
   background: #db1e35;
   right: 72rpx;
-  top: 10rpx;
+  top: 2rpx;
   border-radius: 64rpx;
   text-align: center;
-  line-height: 86rpx;
+  line-height: 88rpx;
   color: #fff;
   font-size: 30rpx;
 }

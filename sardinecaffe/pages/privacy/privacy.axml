@@ -1,0 +1,5 @@
+<view class="wrap">
+  <view style="border-bottom: 1px solid #f2f2f2;margin-top: 12px;">
+    <navigator url="../blackList/blackList" hover-class="navigator-hover" class="itemCellBox rec">	    	黑名单	    </navigator>
+  </view>
+</view>

@@ -1,0 +1,34 @@
+<view class="wrap">
+  <view class="searchBox">
+    <view>
+      <input bindinput="changeVal" value="{{keyword}}" placeholder="搜索关键词" />
+      <view class="close" onTap="removeKey" a:if="{{keyword}}"></view>
+    </view>
+    <text onTap="searchFn">搜索</text>
+  </view>
+  <view style="text-align: center;font-size: 34rpx; color:#888;padding:30px 0" a:if="{{!getUserlistArr.length}}">暂无...</view>
+  <view class="forItem">
+    <checkbox-group bindchange="checkboxChange">
+      <view class="item" a:for="{{getUserlistArr}}" a:key="{{index}}" a:if="{{myUid !== item.id}}">
+        <checkbox value="{{item.id}}" checked="{{false}}"/>
+        <navigator url="/pages/userCommunity/userCommunity?touid={{item.id}}" hover-class="navigator-hover">
+          <image style="width: 95rpx; height: 95rpx;" mode="aspectFill" src="{{item.avatar_image}}" class="userImg"></image>
+        </navigator>
+        <view class="userInfo">
+          <view class="n">{{item.nickname}} 
+            <image src="../../img/{{item.sex==1 ? 'b' :'m'}}.png"></image>
+          </view>
+          <view class="levBox">
+            <image a:for="{{item.ulevel.sun}}" a:key="{{index}}" src="../../img/lv1.png" class="lev"></image>
+            <image a:for="{{item.ulevel.moon}}" a:key="{{index}}" src="../../img/lv2.png" class="lev"></image>
+            <image a:for="{{item.ulevel.star}}" a:key="{{index}}" src="../../img/lv3.png" class="lev"></image>
+          </view>
+        </view>
+        <view class="btn  {{item.is_attend && 'active'}}" a:if="{{myUid !== item.id}}" onTap="attendFn" data-index="{{index}}" data-id="{{item.id}}">{{item.is_attend ? "已关注" : "关注"}}</view>
+      </view>
+    </checkbox-group>
+  </view>
+  <view class="fixedBtn">
+    <view class="btn2" onTap="addBlack">			加入黑名单		</view>
+  </view>
+</view>

@@ -26,7 +26,7 @@
 
         <view class='pay_info'>
           <view class='name_info'>
-            <text class='price_text'>{{item.paytype == 1 ? '优惠券支付' : '微信支付'}}</text>
+            <text class='price_text'>{{item.paytype == 1 ? '优惠券支付' : '支付宝支付'}}</text>
             <block a:if="{{item.paytype != 1}}">
               <text class='price_tip'>￥</text>
               <text class='price_info'>{{item.money}}</text>
@@ -59,7 +59,7 @@
         <view class='pay_info'>
           <view class='pay_btn'>待付款</view>
           <view class='name_info'>
-            <text class='price_text'>{{item.paytype == 1 ? '优惠券支付' : '微信支付'}}</text>
+            <text class='price_text'>{{item.paytype == 1 ? '优惠券支付' : '支付宝支付'}}</text>
             <block a:if="{{item.paytype != 1}}">
               <text class='price_tip'>￥</text>
               <text class='price_info'>{{item.money}}</text>

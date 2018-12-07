@@ -77,22 +77,43 @@ btn1 text {
 }
 
 .banner {
-  height: 780rpx;
   width: 730rpx;
+  height: 780rpx;
   box-sizing: border-box;
   border-radius: 32rpx;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0rpx auto;
+  z-index: 2;
+} 
+.wraptip {
+ position: absolute;
+  right: 60rpx;
+  top: 40rpx; 
+  color: #fff;
+  border: 1px solid #fff;
+  font-size: 24rpx;
+  padding: 10rpx 32rpx;
+  border-radius: 64rpx;
+  font-weight: bold;
 }
-
+.swiper-item {
+  width:100%;
+  height:100%;
+} 
+.swiperNavigator {
+position: relative;
+height:auto;
+width:auto;
+display:block;
+} 
 .slide-image {
   display: block;
   width: 690rpx;
-  height: 740rpx;
+  height: 700rpx;
   box-shadow: 0 0 16rpx rgba(0, 0, 0, 0.2);
   margin: 0 auto;
   border-radius: 32rpx;
-  margin-top: 20rpx;
+  z-index: 1;
 }
 
 .item_icon {
@@ -344,9 +365,7 @@ btn1 text {
   color: #ba1c22;
 }
 
-swiper-item {
-  position: relative;
-}
+
 
 .firstIn {
   position: fixed;
@@ -411,23 +430,6 @@ swiper-item {
   padding: 10rpx 32rpx;
   border-radius: 64rpx;
 }
-
-.swiper-item {
-  position: relative;
-}
-
-.wraptip {
-  position: absolute;
-  right: 60rpx;
-  top: 60rpx;
-  color: #fff;
-  border: 1px solid #fff;
-  font-size: 24rpx;
-  padding: 10rpx 32rpx;
-  border-radius: 64rpx;
-  font-weight: bold;
-}
-
 .wraptip2 {
   position: absolute;
   right: 60rpx;
@@ -547,4 +549,4 @@ swiper-item {
   padding-bottom: 60rpx;
   padding-left: 36rpx;
   margin-top: -8rpx;
-}
+} 

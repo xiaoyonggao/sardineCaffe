@@ -1,0 +1,13 @@
+<view class="wrap">
+  <view class="cellBox clearfix">
+    <view class="cell" a:for="{{listArr}}" a:key="{{index}}">
+      <image class="del" src="../../img/c.png" onTap="delFn" data-uid="{{item.uid}}"></image>
+      <view class="cell_inner">
+        <image src="{{item.avatar_image}}"></image>
+      </view>
+      <text>{{item.nickname}}</text>
+    </view>
+    <navigator url="/pages/addBlack/addBlack" hover-class="navigator-hover" class="cell add"></navigator>
+  </view>
+  <view class="tip">把通好友列表的某个朋友放到这里，TA的一切动态 你将无法看到。</view>
+</view>

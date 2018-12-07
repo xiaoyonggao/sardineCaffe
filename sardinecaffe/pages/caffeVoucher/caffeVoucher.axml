@@ -21,7 +21,7 @@
       <block a:if="{{!cardList.length}}">
         <view class='noneList'>暂无信息...</view>
       </block>
-      <view class="list {{item.isTouchMove ? 'touch-move-active' : ''}}" a:for="{{cardList}}" a:key="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
+      <view class="list {{item.isTouchMove ? 'touch-move-active' : ''}}" a:for="{{cardList}}" a:key="{{index}}" onTouchStart="touchstart" onTouchMove="touchmove" data-index="{{index}}">
         <view class="listCon" data-index="{{index}}">
           <view class='sawtooth'>
             <text a:for="{{12}}" a:key="{{index}}"></text>
@@ -56,7 +56,7 @@
             </view>
           </view>
         </view>
-        <view class='send_share' data-id="{{item.id}}" data-bgm="{{item.bgimg}}" data-type="{{item.dataid}}" catchtap='sendbtn'>
+        <view class='send_share' data-id="{{item.id}}" data-bgm="{{item.bgimg}}" data-type="{{item.dataid}}" catchTap='sendbtn'>
           <view>赠送</view>
         </view>
       </view>

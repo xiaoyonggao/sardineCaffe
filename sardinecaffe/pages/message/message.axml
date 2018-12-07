@@ -1,5 +1,7 @@
 <view class="wrap">
-  <image a:if="{{dataList.msg_1 == 0 && dataList.msg_2 == 0 && dataList.msg_3 == 0 && dataList.msg_4== 0 && dataList.msg_5== 0 }}" src="../../img/msgNone.png" class="msgNone" mode="widthFix"></image>
+  <view a:if="{{dataList.msg_1 == 0 && dataList.msg_2 == 0 && dataList.msg_3 == 0 && dataList.msg_4== 0 && dataList.msg_5== 0 }}" style="text-align: center;font-size: 30rpx; color:#888;padding:40px 0;">
+    <image class="msgNone" mode="widthFix" src="../../img/msgNone.png"></image>
+  </view>
   <navigator a:if="{{dataList.msg_1}}" url="../messageInfo/messageInfo?source=1" hover-class="navigator-hover" class="itemCellBox rec">        咖啡券通知 
     <view class="num">{{dataList.msg_1}}</view>
   </navigator>

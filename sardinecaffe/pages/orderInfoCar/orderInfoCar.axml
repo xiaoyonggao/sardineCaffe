@@ -49,5 +49,5 @@
       <text>￥{{factTotal}}</text>
     </view>
   </view>
-  <view class="wxPay" bindtap="createFn">微信支付</view>
+  <button type="primary" class="wxPay" onTap="createFn">支付宝支付</button>
 </view>

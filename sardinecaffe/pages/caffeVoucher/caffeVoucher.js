@@ -1,11 +1,13 @@
 import {
-  fetchApi
+  fetchApi,
+  getStorageSync
 } from '../../utils/util.js';
 var app = getApp();
 var _uid = "",
   _touid = '',
   active_Index = -1,
-  page = 1
+  page = 1,
+  pages='';//页面栈
 Page({
   data: {
     cardList: [],
@@ -33,11 +35,11 @@ Page({
     my.hideShareMenu()
   },
   onLoad: function(opt) {
-    var pages = getCurrentPages();
+    pages = getCurrentPages();
     this.setData({
       isIpx: app.globalData.isIpx
     })
-    var userData = my.getStorageSync('userData');
+    var userData = getStorageSync('userData');
     _touid = opt.touid || '';
     _uid = userData.id;
     if (opt.source && opt.source != '') {
@@ -50,53 +52,17 @@ Page({
       this.getCard(this.data.couponType);
     }
   },
-  // getScanCode() {
-  //   var t = this;
-  //   t.setData({
-  //     Isclosemask: false,
-  //   })
-  //   my.scanCode({
-  //     onlyFromCamera: true,
-  //     success: (res) => {
-  //       var opotion1 = {}
-  //       var opotion2 = {}
-  //       var resData = res.result.split('=')[1]
-  //       if (resData) {
-  //         if (resData.split('_')[0] == 'coffee') {
-  //           opotion1.vmc = resData.split('_')[1]
-  //           opotion1.scan = 1
-  //           var scanInfo = JSON.stringify(opotion1);
-  //           my.navigateTo({
-  //             url: '../caffeList/caffeList?scanInfo=' + scanInfo
-  //           })
-  //         } else if (resData.split('_')[0] == 'citybox') {
-  //           opotion2.q = escape(res.result)
-  //           opotion2.scan = 0
-  //           var scanInfo = JSON.stringify(opotion2);
-  //           my.navigateTo({
-  //             url: '../caffeList/caffeList?scanInfo=' + scanInfo
-  //           })
-  //         } else {
-  //           my.showModal({
-  //             content: '未取得设备号',
-  //             showCancel: false
-  //           });
-  //         }
-  //       } else {
-  //         my.showModal({
-  //           content: '未取得设备号',
-  //           showCancel: false
-  //         });
-  //       };
-  //     }
-  //   })
-  // },
+  getScanCode() {
+    app.scanCode(1)
+  },
   onShow() {
     this.setData({
       checkedArr: [],
       DialogMask: false
     })
-    // if (_uid) this.getCard(this.data.couponType);
+    if (_uid) this.getCard(this.data.couponType);
+  },
+  onHide(){
   },
   //获取咖啡券列表
   getCard(_type) {
@@ -107,7 +73,7 @@ Page({
     fetchApi({
       url: 'Card/getCardlist',
       data: {
-        uid:'5579',
+        uid:_uid,
         type: _type,
         pagenum: that.data.pagenum,
         pagesize: that.data.pagesize
@@ -205,6 +171,7 @@ Page({
   },
   //手指触摸动作开始 记录起点X坐标
   touchstart(e) {
+    console.log("touchstart",e)
     this.setData({
       startX: e.changedTouches[0].clientX,
       startY: e.changedTouches[0].clientY,
@@ -259,14 +226,15 @@ Page({
   },
   //赠送按钮
   sendbtn(opt) {
+    console.log("hahahhopt",opt)
     var t = this,
       Id = opt.currentTarget.dataset.id,
       dataIdType = opt.currentTarget.dataset.type;
     // bgimg = opt.currentTarget.dataset.bgm;
     if (dataIdType == 0) {
       my.showToast({
-        title: '通用券不能赠送!',
-        icon: "none",
+        content: '通用券不能赠送!',
+        type: "none",
         duration: 1000
       })
     } else {
@@ -299,7 +267,7 @@ Page({
     fetchApi({
       url: 'Card/getCardlist',
       data: {
-        uid: '5579',
+        uid: _uid,
         type: that.data.couponType,
         pagenum: page,
         pagesize: that.data.pagesize
@@ -362,14 +330,14 @@ Page({
           console.log("小伙伴送了张咖啡券", res.data)
           if (res.data.status == 1) {
             my.showToast({
-              title: '分享成功',
-              icon: 'success',
+              content: '分享成功',
+              type: 'success',
               duration: 4000
             })
           } else {
             my.showToast({
-              title: '分享失败',
-              icon: "none",
+              content: '分享失败',
+              type: "none",
               duration: 4000
             })
           }
@@ -377,8 +345,8 @@ Page({
       },
       fail: function(res) {
         my.showToast({
-          title: '分享失败',
-          icon: "none",
+          content: '分享失败',
+          type: "none",
           duration: 2000
         })
       }
@@ -386,5 +354,11 @@ Page({
   },
   onUnload() {
     page = 1
+     if(pages[pages.length-2].route == 'pages/home/home'){
+      pages[pages.length-2].getUserlist()
+    }
+    if(pages[pages.length-2].route == 'pages/messageInfo/messageInfo'){
+      pages[pages.length-2].getSysMsg()
+    }
   }
 })

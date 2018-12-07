@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "tabbar":"/components/tabBar/index"
+    "tabbar":"/components/tabBar/index",
+    "login":"/components/login/index"
     }
 }

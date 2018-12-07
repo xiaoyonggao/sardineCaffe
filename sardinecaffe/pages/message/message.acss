@@ -1,5 +1,4 @@
 page{background: #f2f2f2}
-
 .topSection{overflow: hidden; padding-bottom: 24rpx; background: -webkit-radial-gradient(rgba(52,29,3,1), rgba(12,7,1,1))}
 .userImgBox{width: 140rpx; height: 140rpx; border-radius: 50%; position: relative; display: block;margin: 55rpx auto 10px auto}
 .userImgBox image.uImg{width: 140rpx; height: 140rpx;  border-radius: 50%;overflow: hidden;}

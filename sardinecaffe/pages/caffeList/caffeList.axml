@@ -1,0 +1,136 @@
+<view class='mask_first {{is_send_coupon ? "mask_firstShow" : ""}}'>
+  <view class='close_mask' catchTap="send_coupon_erro">
+  </view>
+  <view class='model_layer'>
+    <view class='coupon_first'>
+      <view class='line'>
+        <text a:for="{{10}}" a:key='{{index}}'></text>
+      </view>
+      <view class="coupon_left">
+        <text class='text_one'>通用
+        </text>
+        <text>咖啡券
+        </text>
+      </view>
+      <view class="coupon_right">
+        <view class='quick_take' catchTap="send_coupon_get">
+          <text>立即领取
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='wrap_out'>
+  <view class='{{notice ? "notice_tip_in" : "notice_tip_out"}}'>
+    <view class='notice_tip'>
+      <text class='tip_text'>运维小哥正在拼命补货中，您可以选择其他口味
+      </text>
+      <text class='close_notice' onTap='close_tip'>+
+      </text>
+    </view>
+  </view>
+  <block a:if="{{is_employee.is_employee != 1}}">
+    <view class="wrap">
+      <view hover-class="none" class="list" a:for="{{arr}}" data-id="{{item.id}}" a:key="{{index}}" data-material="{{item.has_material}}" onTap='getCoffee'>
+        <view class="listCon" data-index="{{index}}">
+          <view class='list_left'>
+            <image src="{{item.image}}" mode="aspectFit" class="image" />
+          </view>
+          <view class='list_center'>
+            <view class='center_flex'>
+              <view class="product_info">
+                <text class='cnname'>{{item.cnname}}
+                </text>
+                <text class="en">{{item.enname}}
+                </text>
+                <text class='ml'>{{item.ml}}ml
+                </text>
+              </view>
+              <view class='product_detail'>
+                <text class='caffe_price'>
+                  <text class='sign'>￥
+                  </text>{{item.price}}
+                </text>
+                <text class='market_price'>
+                  <block a:if="{{item.eprice}}">
+                    <text class='sign_1'>￥
+                    </text>{{item.eprice}}
+                  </block>
+                </text>
+                <text a:if="{{item.has_coupon}}" class='caffe_price caffe_price_1'>有券可用
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block a:else>
+    <view class='wrap'>
+      <view class='ad_wrap_out'>
+        <view class='ad_wrap'>
+          <image src='{{is_employee.bgimg}}'>
+          </image>
+          <!-- <view class='discount_name'>沙丁鱼咖啡</view><view class='discount_rules'>员工福利价</view> -->
+          <view class='discount_num'>
+            <text class='discount_number'>{{is_employee.discount}}
+            </text>
+            <text class='discount_text'>折
+            </text>
+          </view>
+        </view>
+      </view>
+      <view hover-class="none" class="list" a:for="{{arr}}" data-id="{{item.id}}" a:key="{{index}}" data-material="{{item.has_material}}" onTap='getCoffee'>
+        <view class="listCon" data-index="{{index}}">
+          <view class='list_left'>
+            <image src="{{item.image}}" mode="aspectFit" class="image" />
+          </view>
+          <view class='list_center'>
+            <view class='center_flex'>
+              <view class="product_info">
+                <text class='cnname {{item.has_material == 0 ? "light" : ""}}'>{{item.cnname}}
+                </text>
+                <text class='en {{item.has_material == 0 ? "light" : ""}}'>{{item.enname}}
+                </text>
+                <text class='ml {{item.has_material == 0 ? "light" : ""}}'>{{item.ml}}ml
+                </text>
+              </view>
+              <view class='product_detail'>
+                <text class='caffe_price {{item.has_material == 0 ? "light" : ""}}'>
+                  <text class='sign {{item.has_material == 0 ? "light" : ""}}'>￥
+                  </text>{{item.price}}
+                </text>
+                <text class='market_price'>
+                  <block a:if="{{item.eprice}}">
+                    <text class='sign_1'>￥
+                    </text>{{item.eprice}}
+                  </block>
+                </text>
+                <text a:if="{{item.has_coupon}}" class='caffe_price caffe_price_1 {{item.has_material == 0 ? "light" : ""}}'>有券可用
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="tipView" a:if="{{showBtn}}">更多惊喜返回沙丁鱼首页
+  </view>
+  <view a:if="{{showBtn}}" onTap="goHomeBtn" class="goHomeBtn2">返回首页
+  </view>
+</view>
+<view class="dialogLogin" a:if="{{isRemitPay}}">
+  <view class="dialogLoginCon">
+    <view class="loginTitle">提示
+    </view>
+    <view class="loginCon">此功能需要您先开通免密支付!
+    </view>
+    <view class="loginBtn">
+      <navigator target="miniProgram" open-type="navigate" path="pages/index/index" app-id="wxbd687630cd02ce1d" extra-data="{{remitPayData}}" version="release">授权
+      </navigator>
+    </view>
+  </view>
+</view>

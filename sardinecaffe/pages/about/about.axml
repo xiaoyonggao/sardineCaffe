@@ -1,0 +1,7 @@
+<view class="wrap">
+  <view class="aboutLogo">
+    <view class='about_bg'></view>
+  </view>
+  <navigator url="../xieyi/xieyi" hover-class="navigator-hover" class="itemCellBox rec">服务协议</navigator>
+  <navigator url="../feedback/feedback" hover-class="navigator-hover" class="itemCellBox rec">意见反馈</navigator>
+</view>

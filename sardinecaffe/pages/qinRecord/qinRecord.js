@@ -1,5 +1,6 @@
 import {
-  fetchApi
+  fetchApi,
+  getStorageSync
 } from '../../utils/util.js';
 const app = getApp();
 var _uid = "", page = 1, is_has = true;
@@ -48,11 +49,11 @@ Page({
   onLoad: function(options) {
     var t = this;
     is_has = true
-    // var userData = my.getStorageSync('userData')
-    // t.setData({
-    //   myUid: userData.id
-    // });
-    t.boxOrederList(5579, this.data.pagenum)
+    var userData = getStorageSync('userData')
+    t.setData({
+      myUid: userData.id
+    });
+    t.boxOrederList(this.data.myUid, this.data.pagenum)
   },
 
 
@@ -68,7 +69,7 @@ Page({
    */
   onShow: function() {
     if (this.data.myUid) {
-      this.boxOrederList(5579, this.data.pagenum)
+      this.boxOrederList(this.data.myUid, this.data.pagenum)
     }
   },
 /**
@@ -85,11 +86,12 @@ Page({
       fetchApi({
         url: 'Citybox/boxOrederList',
         data: {
-          uid: 5579,
+          uid: this.data.myUid,
           pagenum: page,
           pagesize: this.data.pagesize
         }
       }, res => {
+        console.log("boxOrederList",res)
         if (res.data.status == 1) {
           if (res.data.data != 0) {
             t.setData({

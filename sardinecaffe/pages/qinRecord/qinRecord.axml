@@ -37,7 +37,7 @@
             <view class='order_detail' data-id="{{items.id}}" onTap="OrederList" a:if="{{items.status == 5}}">退款驳回</view>
             <view class='order_detail pay_btn' data-id="{{items.id}}" onTap="OrederList" a:if="{{items.status == 0 ||items.status == 2 }}">去付款</view>
             <view class='name_info'>
-              <text class='price_text'>微信支付</text>
+              <text class='price_text'>支付宝支付</text>
               <text class='price_tip'>￥</text>
               <text class='price_info'>{{items.money}}</text>
             </view>

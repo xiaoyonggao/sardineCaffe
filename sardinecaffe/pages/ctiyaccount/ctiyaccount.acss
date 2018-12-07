@@ -1,0 +1,259 @@
+@import "../../templates/templeteToast/templeteToast.acss";
+page, .wrap {
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
+  position: relative;
+}
+.advertisement {
+  width: 100%;
+  height: 522rpx;
+  z-index: 2;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper_up {
+  width: 690rpx;
+  height: 1126rpx;
+  position: absolute;
+  left: 30rpx;
+  z-index: 3;
+  background: #fffdfd;
+  box-shadow: 0 0 20rpx 0 rgba(0, 0, 0, 0.20);
+  border-radius: 32rpx;
+  transition: all 0.5s ease;
+  padding-bottom:100rpx;
+  overflow: hidden;
+}
+.hasQuestion{
+  width: 690rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: absolute;
+  bottom: 0rpx;
+  text-align: center;
+  left: 0rpx;
+  font-size:24rpx;
+  color:#c5c5c5;
+  background: #fff;
+}
+.swiper_padding {
+  padding: 0 40rpx;
+}
+.account_up {
+  text-align: center;
+}
+
+.circle_out {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #db1e35;
+  margin: 0 auto;
+  margin-top: 60rpx;
+  position: relative;
+}
+
+.circle_out:after {
+  content: '';
+  width: 20rpx;
+  height: 40rpx;
+  font-weight: bold;
+  color: #fff;
+  border-bottom: 5rpx solid;
+  border-right: 5rpx solid;
+  position: absolute;
+  left: 52rpx;
+  top: 35rpx;
+  transform-origin: center;
+  transform: translate(-50%, -30%) rotate(45deg);
+  -webkit-transform: translate(-50%, -30%) rotate(45deg);
+}
+
+.circle_out_no {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #db1e35;
+  margin: 0 auto;
+  margin-top: 200rpx;
+  position: relative;
+}
+.circle_out_no::before {
+  content: '';
+  width: 8rpx;
+  height: 8rpx;
+  color: #fff;
+  background: #fff;
+  position: absolute;
+  border-radius:16rpx;
+  top:75rpx;
+  left:47rpx;
+}
+ .circle_out_no::after {
+  content: '';
+  width: 8rpx;
+  height: 53rpx;
+  color: #fff;
+  background: #fff;
+  position: absolute;
+  border-radius: 16rpx; 
+  top:15rpx;
+  left:47rpx;
+} 
+
+.price_text {
+  margin-top: 21rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.price_sign {
+  font-size: 28rpx !important;
+  color: #333;
+}
+
+.go_home {
+  border: 1px solid #db1e35;
+  box-sizing: border-box;
+  width: 220rpx;
+  height:56rpx;
+  line-height:52rpx;
+  color: #db1e35;
+  margin: 0 auto;
+  border-radius: 32rpx;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+.pay_info_model {
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.pay_title {
+  color: #333;
+  height: 40rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.discount_price {
+  margin-top: 8rpx;
+  height: 40rpx;
+  color: #666;
+  display: flex;
+  flex-direction: row;
+}
+
+.discount_tiyle {
+  width: 112rpx;
+}
+
+.discount_num {
+  flex: 1;
+  display: inline-block;
+  text-align: right;
+  color: #db1e35;
+}
+
+.pay_price {
+  height: 40rpx;
+  color: #666;
+  display: flex;
+  flex-direction: row;
+}
+
+.pay_tiyle {
+  width: 112rpx;
+}
+
+.pay_num {
+  flex: 1;
+  display: inline-block;
+  text-align: right;
+  color: #333;
+}
+
+.totle {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.totle_num {
+  font-size: 30rpx;
+  color: #999;
+  text-decoration: line-through;
+  margin-right: 12rpx;
+}
+
+.totle_sign {
+  font-size: 22rpx;
+  color: #333;
+}
+
+.good_info {
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.good_list {
+  height: 180rpx;
+  width: 100%;
+  padding-top: 8rpx;
+  padding-bottom: 12rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+  display: flex;
+  flex-direction: row;
+}
+
+.good_list:last-child {
+  border-bottom: none;
+}
+
+.good_pic {
+  width: 160rpx;
+  height: 160rpx;
+  border: 1px solid transparent;
+}
+.good_pic image{
+  width: 100%;
+  height: 100%;
+}
+.good_text {
+  flex: 1;
+  text-align: right;
+}
+
+.good_text view {
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-bottom: 14rpx;
+  font-size: 28rpx;
+  color: #333;
+  
+}
+.good_name {
+  margin-top: 4rpx;
+  width: 465rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+ }
+
+.good_num {
+  font-size: 28rpx;
+  color: #999 !important;
+}
+
+.couponListmodle{
+ width: 480rpx;
+ margin: 0 auto;
+ margin-top: 50rpx;
+}

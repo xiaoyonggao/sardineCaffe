@@ -1,0 +1,22 @@
+<view class="wrap">
+  <view style="border-bottom: 1px solid #f2f2f2;border-top: 1px solid #f2f2f2;margin-top: 12px;">
+    <view class="itemCellBox">
+      <view class='flotaleft'>沙丁鱼号</view>
+      <view class='flotaright'>{{userJson.unique_id}}</view>
+    </view>
+    <block a:if="{{!userJson.mobile}}">
+      <navigator url="../bindPhone/bindPhone" hover-class="navigator-hover" class="itemCellBox rec">
+        <view class='flotaleft'>手机号</view>
+        <view class='flotaright bindPhone'>去绑定</view>
+      </navigator>
+    </block>
+    <block a:else>
+      <view class="itemCellBox rec">
+        <view class='flotaleft'>手机号</view>
+        <view class='flotaright binded'>{{userJson.mobile}}</view>
+        <view class='flotaright removebind' catchTap='removebind'>解除绑定</view>
+      </view>
+      <navigator url="../changePhone/changePhone" hover-class="none" class="{{isIpx ? 'changeBindisx' : 'changeBind'}}">更换手机号</navigator>
+    </block>
+  </view>
+</view>

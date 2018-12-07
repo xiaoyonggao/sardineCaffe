@@ -1,0 +1,160 @@
+<import src="../../templates/templeteToast/templeteToast.axml" />
+<view class='wrap'>
+  <swiper class="advertisement" autoplay="true" a:if="{{AdvertisementList.length}}">
+    <swiper-item a:for="{{AdvertisementList}}" a:key="{{index}}">
+      <image src="{{item.images}}" mode="aspectFill" class="slide-image" />
+    </swiper-item>
+  </swiper>
+  <block a:if="{{orderdetail.data.goodsinfo.length}}">
+    <block a:if="{{orderdetail.data.goodsinfo.length<2}}">
+      <view class='swiper_up ' style="top:{{ isTouchMove ? swiperTop : 40}}rpx; height:{{ isIpx ? '1226': '997'}}rpx;" onTouchStart="touchstart" onTouchMove="touchmove">
+        <navigator url="../consultHelp/consultHelp" hover-class="navigator-hover" class='hasQuestion'>我有疑问</navigator>
+        <view class='swiper_padding'>
+          <view class='account_up'>
+            <block a:if="{{orderdetail.data.goodsinfo.length}}">
+              <view class='circle_out'></view>
+              <view class='price_text'>实付金额:
+                <text class='price_sign'>￥</text>{{orderdetail.data.money}}</view>
+            </block>
+            <block a:else>
+              <view class='circle_out_no'>
+              </view>
+              <view class='price_text'>本次无消费，欢迎再次光临</view>
+            </block>
+            <view class='go_home' onTap='backtohome'>去首页逛逛</view>
+          </view>
+          <block a:if="{{orderdetail.data.goodsinfo.length}}">
+            <view class='pay_info_model'>
+              <view class='pay_title'>付款信息</view>
+              <view class='discount_price'>
+                <text class='discount_tiyle'>优惠金额</text>
+                <text class='discount_num'>-{{orderdetail.data.discounted_money}}</text>
+              </view>
+              <block a:if="{{orderdetail.data.card_money !='0.00'}}">
+                <view class='discount_price'>
+                  <text class='discount_tiyle'>轻食券</text>
+                  <text class='discount_num'>-{{orderdetail.data.card_money}}</text>
+                </view>
+              </block>
+              <view class='pay_price'>
+                <text class='pay_tiyle'>付款金额</text>
+                <text class='pay_num'><text class='totle'>￥</text>
+                <text class='totle_num'>{{orderdetail.data.total_money}}</text>
+                <text class='totle_sign'>￥</text>{{orderdetail.data.money}}</text>
+              </view>
+            </view>
+            <view class='good_info'>
+              <view class='pay_title'>商品信息</view>
+              <scroll-view scroll-y style="height:{{2<=orderdetail.data.goodsinfo.length ? '402':'198' }}rpx">
+                <block a:for="{{orderdetail.data.goodsinfo}}" a:key="{{index}}">
+                  <view class='good_list'>
+                    <view class='good_pic'>
+                      <image src='{{item.img}}' mode="aspectFit"></image>
+                    </view>
+                    <view class='good_text'>
+                      <view class='good_name'>{{item.name}}</view>
+                      <view>
+                        <text class='totle_sign'>￥</text>{{item.price}}</view>
+                      <view>
+                        <text class='totle'>x</text>
+                        <text class='good_num'>{{item.num}}</text>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+              </scroll-view>
+            </view>
+          </block>
+          <view a:if="{{orderdetail.data.card_money == '0.00'}}">
+            <block a:if="{{cardList.length && orderdetail.data.card_money =='0.00'}}">
+              <template is="couponListModel" data="{{cardList}}"></template>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block a:else>
+      <view class='swiper_up ' style="top:{{ isTouchMove ? swiperTop : 40}}rpx; height:{{ isIpx ? '1226': 1235}}rpx;" onTouchStart="touchstart" onTouchMove="touchmove">
+        <navigator url="../consultHelp/consultHelp" hover-class="navigator-hover" class='hasQuestion'>我有疑问</navigator>
+        <view class='swiper_padding'>
+          <view class='account_up'>
+            <block a:if="{{orderdetail.data.goodsinfo.length}}">
+              <view class='circle_out'></view>
+              <view class='price_text'>实付金额:
+                <text class='price_sign'>￥</text>{{orderdetail.data.money}}</view>
+            </block>
+            <block a:else>
+              <view class='circle_out_no'>
+              </view>
+              <view class='price_text'>本次无消费，欢迎再次光临</view>
+            </block>
+            <view class='go_home' onTap='backtohome'>去首页逛逛</view>
+          </view>
+          <block a:if="{{orderdetail.data.goodsinfo.length}}">
+            <view class='pay_info_model'>
+              <view class='pay_title'>付款信息</view>
+              <view class='discount_price'>
+                <text class='discount_tiyle'>优惠金额</text>
+                <text class='discount_num'>-{{orderdetail.data.discounted_money}}</text>
+              </view>
+              <block a:if="{{orderdetail.data.card_money !='0.00'}}">
+                <view class='discount_price'>
+                  <text class='discount_tiyle'>轻食券</text>
+                  <text class='discount_num'>-{{orderdetail.data.card_money}}</text>
+                </view>
+              </block>
+              <view class='pay_price'>
+                <text class='pay_tiyle'>付款金额</text>
+                <text class='pay_num'><text class='totle'>￥</text>
+                <text class='totle_num'>{{orderdetail.data.total_money}}</text>
+                <text class='totle_sign'>￥</text>{{orderdetail.data.money}}</text>
+              </view>
+            </view>
+            <view class='good_info'>
+              <view class='pay_title'>商品信息</view>
+              <scroll-view scroll-y style="height:{{2<=orderdetail.data.goodsinfo.length ? '402':'198' }}rpx">
+                <block a:for="{{orderdetail.data.goodsinfo}}" a:key="{{index}}">
+                  <view class='good_list'>
+                    <view class='good_pic'>
+                      <image src='{{item.img}}' mode="aspectFit"></image>
+                    </view>
+                    <view class='good_text'>
+                      <view class='good_name'>{{item.name}}</view>
+                      <view>
+                        <text class='totle_sign'>￥</text>{{item.price}}</view>
+                      <view>
+                        <text class='totle'>x</text>
+                        <text class='good_num'>{{item.num}}</text>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+              </scroll-view>
+            </view>
+          </block>
+          <view a:if="{{orderdetail.data.card_money == '0.00'}}">
+           <block a:if="{{cardList.length && orderdetail.data.card_money =='0.00'}}">
+              <template is="couponListModel" data="{{cardList}}"></template>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+  <block a:else>
+    <view class='swiper_up ' style="top:{{ isTouchMove ? swiperTop : 40}}rpx; height:{{ isIpx ? '400': '324'}}px;" onTouchStart="touchstart" onTouchMove="touchmove">
+      <view class='swiper_padding'>
+        <view class='account_up'>
+          <view class='circle_out_no'>
+          </view>
+          <view class='price_text'>本次无消费，欢迎再次光临</view>
+          <view class='go_home' onTap='backtohome'>去首页逛逛</view>
+        </view>
+        <view class="couponListmodle" a:if="{{cardList.length}}">
+          <template is="couponListModel" data="{{cardList}}"></template>
+        </view>
+      </view>
+    </view>
+  </block>
+
+</view>

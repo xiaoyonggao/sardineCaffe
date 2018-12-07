@@ -1,0 +1,102 @@
+<view a:if="{{showOff}}" class="wrap">
+  <view class='select_out'>
+    <view class="topBox">
+      <view class='cnname'>
+        <text class='name'>{{info.cnname}}
+        </text>
+        <text class='ml'>{{info.ml}}ml
+        </text>
+      </view>
+      <view class='enname'>{{info.enname}}
+      </view>
+    </view>
+    <block a:if="{{ice_machine}}">
+      <view class='cool_hot'>
+        <text onTap="changeCol" a:if="{{info.cold_id}}" class="cool {{vpid == info.cold_id || vpid == info.cold_nosuger ? 'active' : ''}}">冷-COOL
+        </text>
+        <text onTap="changeHot" a:if="{{info.hot_id}}" class="hot {{vpid == info.hot_id || vpid == info.hot_nosuger ? 'active' : ''}}">热-HOT
+        </text>
+      </view>
+    </block>
+    <view class='clean {{ice_machine ? "" : "maginTop"}}'>
+      <view class="coupon" style="font-size: 26rpx; padding:0"> {{tipTitle}}      
+      </view>
+      <view class="item" a:if="{{coffee || coffee==0}}">
+        <view class="title">咖啡浓度
+        </view>
+        <view class="slideBox">
+          <view class='left'>
+            <image class='icon_left' mode='aspectFit' src='../../img/arrow.png'>
+            </image>淡
+          </view>
+          <view class='right'>浓            
+            <image class='icon_right' mode='aspectFit' src='../../img/arrow.png'>
+            </image>
+            <text class='icon_right'>
+            </text>
+          </view>
+          <slider onChange="changeCoffee" handleColor="#db1e35" handleSize="14" activeColor="#db1e35" backgroundColor="#d7d7d7" step="1" max="4" value="{{coffee}}" />
+        </view>
+      </view>
+      <view class="item" a:if="{{milk  || milk==0}}">
+        <view class="title">奶泡浓度
+        </view>
+        <view class="slideBox">
+          <view class='left'>
+            <image class='icon_left' mode='aspectFit' src='../../img/arrow.png'>
+            </image>淡
+          </view>
+          <view class='right'>浓            
+            <image class='icon_right' mode='aspectFit' src='../../img/arrow.png'>
+            </image>
+          </view>
+          <slider onChange="changeMilk" handleColor="#db1e35" handleSize="14" activeColor="#db1e35" backgroundColor="#d7d7d7" step="1" max="4" value="{{milk}}" />
+        </view>
+      </view>
+      <view class="item" a:if="{{sugar || sugar==0}}">
+        <view class="title">糖浓度
+        </view>
+        <view class="slideBox">
+          <view class='left'>
+            <image class='icon_left' mode='aspectFit' src='../../img/arrow.png'>
+            </image>淡
+          </view>
+          <view class='right'>浓            
+            <image class='icon_right' mode='aspectFit' src='../../img/arrow.png'>
+            </image>
+          </view>
+          <slider onChange="changeSugar" handleColor="#db1e35" handleSize="14" activeColor="#db1e35" backgroundColor="#d7d7d7" step="1" max="4" value="{{sugar}}" />
+        </view>
+      </view>
+      <view class="item" a:if="{{tea || tea==0}}">
+        <view class="title">茶浓度
+        </view>
+        <view class="slideBox">
+          <view class='left'>
+            <image class='icon_left' mode='aspectFit' src='../../img/arrow.png'>
+            </image>淡
+          </view>
+          <view class='right'>浓            
+            <image class='icon_right' mode='aspectFit' src='../../img/arrow.png'>
+            </image>
+          </view>
+          <slider onChange="changeTea" handleColor="#db1e35" handleSize="14" activeColor="#db1e35" backgroundColor="#d7d7d7" step="1" max="4" value="{{tea}}" />
+        </view>
+      </view>
+      <view class="buttonBox {{isIpx ? 'buttonBoxisIpx' :''}}">
+        <view class='paytips coupon_tips' a:if="{{send_lightfoodcard !=''}}">购买咖啡赠{{send_lightfoodcard.sill}}减{{send_lightfoodcard.discount}}轻食券
+        </view>
+        <view class='paytips'>若制作失败请勿担心, 钱款将在90s后原路返回
+        </view>
+        <view a:if="{{!info.couponid}}" class='couponid' onTap="bugCaffeFn" data-cou="{{info.couponid}}">购买咖啡券支付
+        </view>
+        <view class="btn2" onTap="payFn2" data-cou="{{info.couponid}}" a:if="{{info.couponid}}">咖啡券支付
+          <text style="font-size: 27rpx;margin-left:6rpx;">{{info.coupon_nums}}张可用
+          </text>
+        </view>
+        <view class="btn1  {{!info.couponid ? 'q' : ''}}" onTap="payFn">支付宝支付 ￥{{info.price}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

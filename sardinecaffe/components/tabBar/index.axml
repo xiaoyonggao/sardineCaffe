@@ -13,7 +13,7 @@
       </text>
     </block>
   </view>
-  <view class="tabBar">
+  <view class="tabBar" onTap ='scanCode'>
      <view class="scan_icon"><image src="../../img/scan_icon.png" mode="aspectFill" /></view>
      <view class="scan_text">扫描二维码</view>
   </view>

@@ -1,6 +1,10 @@
 .wrap_out {
   padding: 18rpx 38rpx;
 }
+.none{
+  text-align: center;
+  padding-top: 80rpx;
+}
 .wrap_out:first-child{
   padding-top: 36rpx
 }
@@ -181,7 +185,7 @@
 }
 .no_more{
   text-align: center;
-  font-size:14px;
+  font-size:20rpx;
   color:#999;
   padding-bottom: 10rpx;
 }

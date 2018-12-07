@@ -46,7 +46,7 @@
             <block a:if="{{item.type ==4 ||item.type ==3}}">
               <view class='lightfood_left'>
                 <block a:if="{{item.type == 4}}">
-                  <view class='now_use' catchtap='getScanCode'>立即使用</view>
+                  <view class='now_use' catchTap='getScanCode'>立即使用</view>
                 </block>
                 <view class="lightovertime {{item.type ==3 ? ' graycolor nameMargin':'' }}">有效期至:{{item.etime}}</view>
               </view>
@@ -71,22 +71,22 @@
   </view>
 </template>
 <template name='sendDialog'>
-  <view class='{{DialogMask ? "showmask" : "maskDialog"}}' catchtap='cancelSend'></view>
+  <view class='{{DialogMask ? "showmask" : "maskDialog"}}' catchTap='cancelSend'></view>
   <view class=' {{DialogMask ? "showDialog" : "maskDialogCon"}}'>
     <view class='Dialog_updowm'>
       <view class='Dialog_up'>
         <view class='listCon_out'>
           <button class='list2_left' data-type="{{dataIdType}}" data-id="{{caffeId}}" open-type="share" hover-class="other-button-hover">
             <view class='wechat'></view>
-            <text>微信</text>
+            <text>支付宝</text>
           </button>
-          <view class='list2_right' data-id="{{caffeId}}" catchtap='sendVoncher'>
+          <view class='list2_right' data-id="{{caffeId}}" catchTap='sendVoncher'>
             <view class='community'></view>
             <text>我的关注</text>
           </view>
         </view>
       </view>
-      <view class='Dialog_dowm {{isIpx ? "Ipxpadding" :""}}' catchtap='cancelSend'>
+      <view class='Dialog_dowm {{isIpx ? "Ipxpadding" :""}}' catchTap='cancelSend'>
         <text>取消</text>
       </view>
     </view>

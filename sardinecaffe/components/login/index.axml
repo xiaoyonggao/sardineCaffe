@@ -1,0 +1,10 @@
+<view class='bg_image'>
+</view>
+<view class='wrap_login'>
+  <view class='text_area'>
+    为了获取完整的小程序体验,请授权登陆,才可以使用全部服务！
+  </view>
+  <view class='set_btn'>
+    <button open-type="getUserInfo"  class='btn_login' onTap='_login'>授权登陆</button>
+  </view>
+</view>

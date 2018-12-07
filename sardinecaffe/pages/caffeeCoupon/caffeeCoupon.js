@@ -1,12 +1,13 @@
 import {
-  fetchApi
+  fetchApi,
+  getStorageSync
 } from '../../utils/util.js';
 const app = getApp();
-var _uid = '';
+var _uid = '',pages='';
 Page({
   data: {
     caffee_list: '',
-    total: 0,
+    total: app.globalData.total,
     count: 0,
     discount: 0,
     discount_total: 0,
@@ -20,21 +21,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(opt) {
-    var t = this;
-    // var userData = my.getStorageSync('userData')
-    // _uid = userData.id;
+    console.log("total",this.data.total)
+    var t = this, userData = getStorageSync('userData');
+     _uid = userData.id;
+    pages = getCurrentPages();
+    console.log("pages",)
     this.setData({
       isIpx: app.globalData.isIpx ? true : false,
     })
-    t.getShopList(opt.id)
+    t.getShopList(opt.id,userData.id)
   },
   //获取咖啡券列表
-  getShopList(id) {
+  getShopList(id,uid) {
     var t = this
     fetchApi({
       url: 'Shop/getCardList',
       data: {
-        uid: 5579,
+        uid: uid,
         cateid: 1,
         pagesize: 9999,
         pagenum: 1,
@@ -174,8 +177,6 @@ Page({
             url: '../orderInfoCar/orderInfoCar?info=' + t.data.ginfo + '&json=' + t.data.json
           })
         }
-      }, res2 => {
-        console.log(res2)
       })
 
     }
@@ -198,7 +199,13 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
+    console.log(pages)
+    if(pages[pages.length-2].route == 'pages/home/home'){
+      pages[pages.length-2].getUserlist()
+    }
+    if(pages[pages.length-2].route == 'pages/info/info'){
+      pages[pages.length-2].getInfo()
+    }
   },
 
   /**

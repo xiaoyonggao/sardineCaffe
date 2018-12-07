@@ -1,0 +1,34 @@
+<import src="../../templates/templeteToast/templeteToast.axml" />
+<template is="couponModel" data="{{Isclosemask,lightfood}}"></template>
+<view class="wrap" a:if="{{showOff}}">
+  <!-- <view class="makeTipBox" my:if="ture">
+    去首页逛逛吧({{countDownNum}}s)
+  </view> -->
+  <view class='wrap_in'>
+    <view class="title">{{titleName}}
+      <text>{{enname}}</text>
+    </view>
+    <view class="nowUser">
+      <view class='avatar'>
+        <image class="makeImg" mode="aspectFill" src="{{nowUser == '' ? '../../img/ic2.png':nowUser.avatar_image}}" />
+      </view>
+      <view class='in_production'>{{stateArr[stateNum]}}
+        <text a:if="{{stateNum!=2}}">...</text>
+      </view>
+    </view>
+    <!-- <view class="userList" style="opacity: 0;visibility: hidden" a:if="{{otherUser.length}}">
+      <text>排队中</text>
+      <image class="makeImg" a:for="{{otherUser}}" a:key="{{index}}" mode="aspectFill" src="{{item.avatar_image}}" />
+      <view a:if="{{otherUser.length>=5}}">...</view>
+    </view> -->
+    <view class='product_model'>
+      <view class='production_gif {{stateNum ==2 ? "pro_animation":""}}'>
+        <image mode="aspectFit" src="../../img/making.gif" />
+      </view>
+      <view class='makeImg_model {{stateNum ==2 ? "make_animation":""}}'>
+        <image class="makeImg" mode="aspectFit" src="{{imgSrc}}" style='width:100%;height:100%;' />
+      </view>
+    </view>
+    <view class='product_tip'>若制作失败请勿担心，钱款将在90s后原路返回</view>
+  </view>
+ </view>

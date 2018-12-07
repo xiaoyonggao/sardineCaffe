@@ -1,0 +1,49 @@
+<import src="/wxParse/wxParse.axml"/>
+<view class='wrap'>
+  <view class='container-wrap'>
+    <view class="item-li" catchTap='opend_one'>
+      <view class="item-title">
+        <text class="{{open_one ? 'arrow_up' : 'arrow_down'}}"></text>
+        <text class='quetion'>咖啡机常见问题</text>
+        <text></text>
+      </view>
+      <view class="item-content" a:if="{{open_one}}">
+        <block a:for="{{list}}" a:key="{{index}}">
+          <!-- <view a:if="{{item.type == 1}}">{{item.contents}}</view> -->
+   <template is="wxParse" data="{{wxParseData:list[index].contents.nodes}}"/>
+        </block>
+        <text></text>
+      </view>
+    </view>
+    <view class="item-li" catchTap='opend_two'>
+      <view class="item-title">
+        <text class="{{open_two ? 'arrow_up' : 'arrow_down'}}"></text>
+        <text class='quetion'>轻食柜常见问题</text>
+        <text></text>
+      </view>
+      <view class="item-content" a:if="{{open_two}}">
+        <block a:for="{{list}}" a:key="{{index}}" a:item="item">
+          <view a:if="{{item.type == 2}}">
+            <!-- <text>{{item.contents}}</text> -->
+            <template is="wxParse" data="{{wxParseData:list[index].contents.nodes}}"/>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="item-li" catchTap='opend_three'>
+      <view class="item-title">
+        <text class="{{open_three ? 'arrow_up' : 'arrow_down'}}"></text>
+        <text class='quetion'>线上商城常见问题</text>
+        <text></text>
+      </view>
+      <view class="item-content" a:if="{{open_three}}">
+        <block a:for="{{list}}" a:key="{{index}}">
+          <view a:if="{{item.type == 3}}">
+            <!-- <text>{{item.contents}}</text> -->
+                <template is="wxParse" data="{{wxParseData:list[index].contents.nodes}}"/>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

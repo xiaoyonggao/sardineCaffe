@@ -1,0 +1,142 @@
+<!--好友送券接收弹框 -->
+<template name='sendcaffemodel'>
+  <view class='{{Isclosemask ? "mask_display" : "mask_none"}}'>
+    <view class='mask_out'>
+      <view class='closemask' catchTap='closemask'>+</view>
+      <view class='mask_box'>
+        <view class='mask_title'>领券成功</view>
+        <view class='mask_pic'>
+          <view class='coffee_pic'>
+            <image src='{{coffeeInfo[0].bgimg}}'></image>
+          </view>
+          <view class='coffee_info'>
+            <view class='coffee_en'>{{coffeeInfo[0].enname}}</view>
+            <view class='coffee_cn'>{{coffeeInfo[0].cnname}}</view>
+            <view class='coffee_price'>
+              <text class='price_sing'>￥</text>{{coffeeInfo[0].worth}}</view>
+          </view>
+        </view>
+        <view class='mask_text'>点击"个人中心-我的优惠券"查看券详情</view>
+      </view>
+      <view class='bottom_btn'>
+        <view class='use_btn' catchTap="getScanCode">去使用</view>
+      </view>
+    </view>
+  </view>
+</template>
+<!--活动赠送咖啡券弹框 -->
+<template name='activitysendcaffemodel'>
+  <view class='{{activeSend ? "mask_display" : "mask_none"}}'>
+    <view class='mask_out_1'>
+      <view class='closemask' catchTap='closemask_activity'>+</view>
+      <view class='mask_box'>
+        <view class='mask_title'>领券成功</view>
+        <view class='mask_pic'>
+          <view class='coffee_pic_1'>
+          </view>
+        </view>
+        <view class='mask_text_title'>活动规则</view>
+        <view class='mask_text_1'>每个ID可扫码获咖啡通用券两张，当天不可重复领取， 咖啡券限当天使用，次日0点后需重新扫码领取。
+        </view>
+      </view>
+      <view class='bottom_btn_1'>
+        <view class='use_btn' catchTap="closemask_activity">确定</view>
+      </view>
+    </view>
+  </view>
+</template>
+<!--送广场的交互模态框-->
+<template name='sendcaffeUserModel'>
+  <view class='{{flagsure ? "mask_display" : "mask_none"}}'>
+    <block a:if="{{successArr.length ==0}}">
+      <view class='sure_out'>
+        <view class='sure_up'>确定将此券送出吗？</view>
+        <view class='sure_down'>
+          <view class='sure_down_left sure_downcommet' catchTap='sure_send'>确定</view>
+          <view class='sure_down_right sure_downcommet' catchTap='cancel_send'>取消</view>
+        </view>
+      </view>
+    </block>
+    <block a:else>
+      <view class='send_success'>
+        <view class='send_text'>
+          <text class='success_dot'></text> 送券成功!</view>
+      </view>
+    </block>
+  </view>
+</template>
+<template name='ToastSure'>
+  <view class='{{ToastSure ? "mask_display" : "mask_none"}}'>
+    <view class='sure_out_2'>
+      <view class='sure_up'>确定要删除吗？</view>
+      <view class='sure_down'>
+        <view class='sure_down_right sure_downcommet' catchTap='cancel_send'>取消</view>
+        <view class='sure_down_left_2 sure_downcommet' catchTap='sure_send'>确定</view>
+      </view>
+    </view>
+  </view>
+</template>
+<!--买咖啡送轻食券模态框-->
+<template name="couponModel">
+  <view class='{{Isclosemask ? "mask_display" : "mask_none"}}'>
+    <view class='light_out'>
+      <view class='text_line'>
+        <!-- <text a:for="{{4}}" a:key="{{index}}"></text> -->
+      </view>
+      <view class='light_up'>
+        <view class='closemask_out'>
+          <view class='closebtn' catchTap='closemask'></view>
+        </view>
+        <view class='light_middle'>
+          <view class='middle_up'>
+            <blcok a:if="{{lightfood.worth>10}}">
+              <view class='middle_left1'>
+                <text class='middle_sign1'>￥</text>
+                <text class='middle_money1'>{{lightfood.worth}}</text>
+                 <!-- <text class='middle_money1'>20</text>  -->
+              </view>
+            </blcok>
+            <blcok a:else>
+              <view class='middle_left1'>
+                <text class='middle_sign1'>￥</text>
+                <text class='middle_money1'>{{lightfood.worth}}</text>
+                  <!-- <text class='middle_money1'>2</text> -->
+              </view>
+            </blcok>
+            <view class='middle_right'>
+              <view class='right_out'>
+                <view class='right_up'>
+                  <text>轻食券</text>
+                </view>
+                <view class='right_down'>
+                  <view>消费满{{lightfood.sill}}可用</view>
+                  <view>{{lightfood.stime}}~{{lightfood.etime}}</view>
+                  <!-- <view>2018.03.03~2018.03.03</view> -->
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='middle_down'>
+            <view class='middle_text'>点击"我的优惠券"查看券详情</view>
+          </view>
+        </view>
+      </view>
+      <view class='light_down'>
+        <view class='lightbottom_btn'>
+          <view class='use_btn' catchTap="getScanCode">去使用</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<!--轻食券列表模态框-->
+<template name="couponListModel">
+  <scroll-view class='scrollView' scroll-y>
+    <block a:if="{{cardList.length}}" a:for="{{cardList}}" a:key="{{index}}">
+      <view class="scroll-view-item">
+        <view class="item_name {{cardList.length==1 ? 'scroll-view-item1' : ''}}">满{{item.sill}}减{{item.worth}}优惠券</view>
+        <view class='item_date'>{{item.stime}}-{{item.etime}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</template>

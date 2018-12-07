@@ -1,0 +1,8 @@
+page{background: #f2f2f2}
+textarea{
+    font-size: 30rpx; height: 120px;padding: 12px;
+}
+
+
+.save{background: #08a5e1;width: 90%; position: fixed; left: 5%; bottom:30rpx; height: 90rpx; color: #fff;  line-height: 90rpx; border-radius: 4px; text-align: center;}
+.save:active{background: #1088b6;}

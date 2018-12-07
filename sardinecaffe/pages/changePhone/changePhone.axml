@@ -1,0 +1,13 @@
+<view class="wrap">
+    <view style="display: block;font-size: 28rpx;color:#333;border-top:1px solid #f2f2f2;height:94rpx;line-height:94rpx;border-bottom: 1px solid #f2f2f2;padding:0 36rpx;">当前手机号 <text class='oldPhone'>{{oldPhone}}</text></view>
+    <view style="border-bottom: 1px solid #f2f2f2;margin-top: 0px;">
+	    <view class="itemCellBox">
+	    	<input type="number" placeholder-style="color:rgba(204,201,201,1.00);"  onInput="phoneFn" placeholder="输入手机号" value="{{phone}}" />
+	    </view>
+        <view class="itemCellBox">
+            <input type="number"  placeholder-style="color:rgba(204,201,201,1.00);" placeholder="输入验证码" onInput="codeFn"  value="{{code}}" />
+            <view class="getCode  {{off ? ' ' : 'act'}}"  onTap="getCodeNum"><text>{{codeTitle}}</text></view>
+        </view>
+    </view>	
+    <view class="{{isIpx ? 'saveisx':'save'}}" onTap="saveFn">更换手机号</view>
+</view>

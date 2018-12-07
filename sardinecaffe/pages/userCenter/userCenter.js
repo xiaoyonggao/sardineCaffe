@@ -1,23 +1,32 @@
 import {
   fetchApi,
-  setStorageSync
+  getStorageSync
 } from '../../utils/util.js'
 //获取应用实例
 const app = getApp();
+var _uid = ''
 Page({
   data: {
-    currentPage:2,
-    isIpx:''
+    currentPage: 2,
+    isIpx: ''
   },
 
   onLoad() {
-    // var count = my.getStorageSync('shopCountSize')
-    // var userData = my.getStorageSync('userData');
-    // _uid = userData.id;
+    var t = this
+    var userData = getStorageSync('userData');
+    _uid = userData.id;
     this.setData({
       isIpx: app.globalData.isIpx ? true : false,
     })
-    this.getUserlist();
+    t.getUserlist()
+  },
+  getUserlist() {
+    var t = this
+    app.getUserlist(_uid, function(res) {
+      t.setData({
+        userJson: res.data.data
+      });
+    });
   },
   onReady() {
     // 页面加载完成
@@ -25,33 +34,9 @@ Page({
       isIpx: app.globalData.iPhonex
     })
   },
-  //获取用户信息
-  getUserlist() {
-    var t = this
-    fetchApi({
-      url: 'User/getUserInfo',
-      data: {
-        uid: 5579,
-        touid: 5579
-      }
-    },res=>{
-      console.log("resresresres",res)
-      setStorageSync('currentNum', res.data.data.coffee_nums);
-      t.setData({
-        userJson: res.data.data
-      });
-    },res2=>{
-      console.log(res2)
-    })
-  },
-  makePhoneCall: function(e) {
+  makePhoneCall(e) {
     my.makePhoneCall({
-      phoneNumber: e.currentTarget.dataset.phone
-    })
-  },
-  makePhoneCall: function(e) {
-    my.makePhoneCall({
-      phoneNumber: e.target.dataset.phone
+      number: e.currentTarget.dataset.phone
     })
   },
   onShow() {
@@ -74,10 +59,5 @@ Page({
   },
   onShareAppMessage() {
     // 返回自定义分享信息
-    return {
-      title: 'My App',
-      desc: 'My App description',
-      path: 'pages/index/index',
-    };
   }
 });

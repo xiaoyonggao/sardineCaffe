@@ -1,0 +1,219 @@
+page, .wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.up_title {
+  padding-top: 56rpx;
+  width: 100%;
+  padding-bottom: 46rpx;
+}
+
+.finish_title {
+  display: block;
+  width: 150rpx;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.thank_title {
+  display: block;
+  width: 500rpx;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 24rpx;
+  margin-top: 28rpx;
+  color:#999;
+}
+
+.down_gooddetail {
+  padding: 0 30rpx;
+}
+
+.good_out {
+  margin-top: 40rpx;
+  padding-bottom: 26rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.goodinfo {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+
+.info_list {
+  margin-top: 30rpx;
+  height: 64rpx;
+  line-height: 35rpx;
+}
+
+.info_list:first-child {
+  margin-top: 0rpx;
+}
+
+.goodname {
+  float: left;
+  width: 300rpx;
+  font-size: 28rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.how_g {
+  display: block;
+  position: absolute;
+  font-size: 20rpx;
+  color: #999;
+}
+
+.num {
+  float: right;
+  width: 150rpx;
+  font-size: 20rpx;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.num_sign {
+  font-size: 20rpx;
+  margin-right: 10rpx;
+}
+
+.goodprice {
+  float: right;
+  width: 180rpx;
+  font-size: 28rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.good_up {
+  overflow: hidden;
+}
+
+.good_down {
+  clear: both;
+  overflow: hidden;
+}
+
+.goodprice_sign {
+  display: inline-block;
+  font-size: 20rpx !important;
+  margin-right: 4rpx;
+}
+
+.goodprice_sign_1 {
+  font-size: 20rpx !important;
+  margin-right: 4rpx;
+}
+
+.payinfo {
+  margin-top: 30rpx;
+  padding-bottom: 26rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.info_pay {
+  overflow: hidden;
+  margin-top: 30rpx;
+}
+
+.pay_info {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+
+.coupon {
+  float: left;
+  width: 300rpx;
+  font-size: 28rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.coupon_price {
+  float: right;
+  width: 350rpx;
+  font-size: 28rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+
+._price_color {
+  font-size: 28rpx;
+  color: #d81c22;
+  font-weight: bold;
+}
+.coupon_price_color{
+  color: #333;
+}
+.fact_price {
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.order_list {
+  margin-top: 0rpx;
+}
+
+.order_info {
+  clear: both;
+  margin-top: 30rpx;
+  padding-bottom:130rpx;
+  overflow: hidden;
+}
+
+.btn_back {
+  width: 172rpx;
+  height: 52rpx;
+  border: 1px solid #999;
+  border-radius: 52rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 52rpx;
+  color: #999;
+  float: right;
+  margin-top: 82rpx;
+}
+.btn_back1:active{
+  background: #db1e35;
+   border: 1px solid #db1e35;
+    color: #fff;
+}
+
+.gotopay {
+  background: #db1e35;
+  color: #fff;
+  border: none;
+}
+.question {
+  position: absolute;
+  bottom: 60rpx;
+  width: 100%;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #c5c5c5;
+}

@@ -1,0 +1,392 @@
+.select_out {
+  padding: 0rpx 100rpx;
+}
+.wrap{
+height:100%;
+overflow: hidden;
+}
+.topBox {
+  color: #333;
+  box-sizing: border-box;
+  padding-top: 52rpx;
+  text-align: left;
+}
+
+.cnname text {
+  display: block;
+}
+
+.cnname .name {
+  float: left;
+  font-size: 40rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.cnname .ml {
+  float: left;
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+
+.enname {
+  clear: both;
+  font-size: 34rpx;
+  margin-top: 4rpx;
+  font-weight: bold;
+}
+
+.cool_hot {
+  transition: all 0.2s ease;
+  font-size: 30rpx;
+  border-radius: 3px;
+  width: 344rpx;
+  margin: 0 auto;
+  clear: both;
+  overflow: hidden;
+  border: 1px solid #fff;
+  margin-top: 114rpx;
+  margin-bottom: 80rpx;
+}
+
+.cool_hot text {
+  padding: 0px 0rpx 4rpx 0rpx;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.cool_hot text.active, .cool_hot text:active {
+  border-bottom: 4rpx solid #db1e35;
+}
+
+.cool {
+  float: left;
+}
+
+.hot {
+  float: right;
+}
+
+.clean {
+  clear: both;
+  color: #333;
+}
+
+.icon_left {
+  position: absolute;
+  width: 52rpx;
+  height: 31rpx;
+  transform: rotate(-180deg);
+  left: -63rpx;
+  top: 4rpx;
+}
+
+.icon_right {
+  position: absolute;
+  width: 52rpx;
+  height: 31rpx;
+  right: -63rpx;
+  top: 4rpx;
+}
+
+.maginTop {
+  padding-top: 128rpx;
+}
+
+.item {
+  margin-bottom: 50rpx;
+  box-sizing: border-box;
+}
+
+.item .title {
+  font-size: 28rpx;
+}
+
+.item .title image {
+  float: left;
+  position: relative;
+  margin-right: 15rpx;
+}
+
+slider {
+  margin: 0px;
+}
+
+.slideBox {
+  font-size: 28rpx;
+  position: relative;
+  padding: 12rpx 100rpx 0rpx 100rpx;
+}
+
+.slideBox .left {
+  position: absolute;
+  left: 54rpx;
+  top: 16rpx;
+}
+
+.slideBox .right {
+  position: absolute;
+  right: 53rpx;
+  top: 16rpx;
+}
+
+.step_tit {
+  margin-top: 7px;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.step_tit view {
+  width: 20%;
+  float: left;
+  position: relative;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.step_tit view text.l {
+  display: block;
+  text-align: left;
+  position: relative;
+  left: -2px;
+}
+
+.step_tit view text.r {
+  display: block;
+  text-align: right;
+  position: relative;
+  right: -2px;
+}
+
+.af text, .af1 text, .af2 text {
+  opacity: 0;
+}
+
+.wrap.blur {
+  filter: blur(4px);
+}
+
+/*.af:after{
+	content:'' ;
+	display: block; 
+	width: 3px;height: 4px;background: #b0b0b0;
+	position: absolute; left: 20rpx; top:-21px;
+}
+.af1:after{
+	content:'' ;
+	display: block; 
+	width: 3px;height: 4px;background: #b0b0b0;
+	position: absolute; left: 50%;margin-left: -1px; top:-21px;
+}
+.af2:after{
+	content:'' ;
+	display: block; 
+	width: 3px;height: 4px;background: #b0b0b0;
+	position: absolute; right: 20rpx; top:-21px;
+}*/
+
+.step_tit view.left1 {
+  text-align: left;
+}
+
+.step_tit view.right1 {
+  text-align: right;
+}
+
+.coupon {
+  padding: 10px 0 10px 0;
+  text-align: center;
+  color: #333;
+  font-size: 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.buttonBox {
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 10;
+  color: #fff;
+  font-size: 30rpx;
+  overflow: hidden;
+  width: 100%;
+  left: 0px;
+  bottom: 40rpx;
+  padding: 0 14px;
+}
+
+.buttonBoxisIpx {
+  bottom: 108rpx !important;
+}
+
+.btn1 {
+  transition: all 0.2s ease;
+  color: #db1e35;
+  text-align: center;
+  height: 94rpx;
+  font-size: 34rpx;
+  line-height: 94rpx;
+  padding: 0px 0px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  border: 1rpx solid #db1e35;
+  width: 80%;
+ 
+  margin: 0 auto;
+}
+.btn2 {
+  transition: all 0.2s ease;
+  color: #fff;
+  background: #db1e35;
+  height: 94rpx;
+  line-height: 94rpx;
+  text-align: center;
+  font-size: 34rpx;
+  padding: 0px 0;
+  border-radius: 50px;
+  border: 1rpx solid #db1e35;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto 20rpx auto;
+}
+
+.btn2:active {
+  color: #fff;
+}
+
+.hart image {
+  width: 44rpx;
+  height: 37rpx;
+}
+
+.hart {
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.addSc {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 66;
+}
+
+.addSc .tit {
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  font-size: 36rpx;
+  margin-top: 200rpx;
+}
+
+.addSc .inp {
+  width: 90%;
+  display: block;
+  margin: 25px auto;
+  background: rgba(123, 122, 120, 0.8);
+  position: relative;
+  height: 100rpx;
+  border-radius: 4px;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 0px;
+  width: 50px;
+  top: 0px;
+  z-index: 10;
+  text-align: center;
+  line-height: 110rpx;
+  height: 100%;
+}
+
+.closeBtn:after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 80px;
+  position: absolute;
+  left: -5px;
+  top: -16px;
+}
+
+.closeBtn image {
+  width: 18px;
+  height: 18px;
+}
+
+.addSc .inp input {
+  color: #fff;
+  padding: 0 0 0 10px;
+  font-size: 28rpx;
+  height: 100rpx;
+  width: 80%;
+}
+
+.btnBox {
+  text-align: center;
+}
+
+.btnBox text {
+  display: inline-block;
+  border-radius: 4px;
+  margin: 0 10px;
+  border: 1px solid #28a5e6;
+  padding: 8px 25px;
+  color: #28a5e6;
+}
+
+.btnBox text:active {
+  background: #28a5e6;
+  color: #fff;
+}
+
+.couponid {
+  transition: all 0.2s ease;
+  color: #db1e35;
+  text-align: center;
+  height: 94rpx;
+  font-size: 34rpx;
+  line-height: 94rpx;
+  padding: 0px 0px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  border: 1rpx solid #db1e35;
+  width: 80%;
+  margin:0 auto 20rpx auto;
+}
+.q {
+  background: #db1e35;
+  border: 1px solid #db1e35;
+  color: #fff;
+}
+.paytips{
+  font-size:20rpx;
+  color:#999;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.coupon_tips{
+  border-radius:16rpx;
+  padding: 18rpx 0rpx;
+  color: #db1e35;
+  font-size: 24rpx;
+}

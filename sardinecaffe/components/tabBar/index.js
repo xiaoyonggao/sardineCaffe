@@ -1,12 +1,15 @@
 const app = getApp();
 Component({
   mixins: [],
-  data: {},
+  data: {
+    isIpx:app.globalData.iPhonex
+  },
   props: {
     currentPage:1,
     isIpx:''
   },
   didMount() {
+    console.log("isIpx",this.data.isIpx)
   },
   didUpdate() {
   },
@@ -34,6 +37,9 @@ Component({
              return;
         }
       }
+    },
+    scanCode(){
+      app.scanCode()
     }
   }
 });

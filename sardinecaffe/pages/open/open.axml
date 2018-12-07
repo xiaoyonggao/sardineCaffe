@@ -1,0 +1,28 @@
+<!-- <import src="../../templates/templeteToast/templeteToast.axml" /> -->
+<block a:if="{{isLogin}}">
+  <login />
+</block>
+<blcok a:else>
+  <view class='wrap'>
+    <view class='wrap_in'>
+      <image src='../../img/lightfood.png' mode="aspectFit">
+      </image>
+    </view>
+    <view class='under_text'>    开门取走商品，关门后将自动结算  
+    </view>
+  </view>
+  <block a:if="{{countShow}}">
+    <view class='mask'>
+      <view class='count'>
+        <image src='../../img/count.gif' mode="aspectFit">
+        </image>
+        <view class='tip_text'>
+          <text class='first'>结算中...
+          </text>
+          <text>请勿离开此页面
+          </text>
+        </view>
+      </view>
+    </view>
+  </block>
+</block>

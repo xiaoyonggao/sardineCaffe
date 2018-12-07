@@ -1,0 +1,93 @@
+<view class='wrap'>
+  <block a:if="{{refunding == 0}}">
+    <view class='refund_price'>
+      <view class='refund_left'>
+        退款金额:
+      </view>
+      <view class='refund_right'>
+        <text class='right_sign'>￥</text>{{refundPrice}}
+      </view>
+    </view>
+    <view class='contian_phone'>
+      <view class='phone_left'>
+        联系方式:
+      </view>
+      <view class="{{color ? 'phone_right_color' : 'phone_right'}}">
+        <input type='number' value='{{mobile}}' placeholder="请输入手机号码" placeholder-style="font-size:24rpx;color:#dedede;" confirm-type='done' onConfirm="bindconfirmPhone" onBlur="bindblurPhone"></input>
+      </view>
+    </view>
+    <view class='reason_wrap'>
+      <view class='reason_left'>退款理由:</view>
+      <view class='reason_right'>
+        <input type='text' confirm-type='done' onConfirm="bindconfirm" onBlur="bindblur" placeholder="吐槽几句（少于20字)" placeholder-style="padding-left:12rpx;font-size:24rpx;color:#dedede;"></input>
+      </view>
+    </view>
+    <view class='tip_out'>
+      <view class='tip_text'>上传凭证（需商品外包装图片,商品本身图片)</view>
+      <view class='tip_in'>
+        <block a:for="{{imgArr}}" a:key="{{index}}">
+          <view class='up_image'><image class='image' src='{{item}}'></image></view>
+        </block>
+        <view class='up_image' catchTap='chooseImage'></view>
+      </view>
+    </view>
+  </block>
+  <block a:else>
+    <view class='refund_price'>
+      <view class='refund_left'>
+        退款金额:
+      </view>
+      <view class='refund_right'>
+        <text class='right_sign'>￥</text>{{refundPrice}}
+      </view>
+    </view>
+    <view class='contian_phone'>
+      <view class='phone_left'>
+        联系方式:
+      </view>
+      <view class='phone_right phone2_right'>
+        <text>{{phone}}</text>
+      </view>
+    </view>
+    <view class='reason_wrap'>
+      <view class='reason_left'>退款理由:</view>
+      <view class='reason_right'>
+        <input type='text' value='{{refund_reasoning}}' disabled='ture' placeholder-style="font-size:24rpx;color:#dedede;"></input>
+      </view>
+    </view>
+    <view class='tip_out'>
+      <view class='tip_text'>上传凭证（需商品外包装图片,商品本身图片）</view>
+      <view class='tip_in'>
+        <block a:for="{{imgList}}" a:key="{{index}}">
+          <view class='up_image2'><image class='image' src='{{item}}'></image></view>
+        </block>
+      </view>
+    </view>
+  </block>
+  <view class='refund_tip'>
+    <view class='refund_tip_left'>退款须知:</view>
+    <view class='refund_tip_right'>
+      <view class='right_tip'>用户申请退款后，须审核
+        <text>1-3</text>个工作日；</view>
+      <view class='right_tip'>工作人员会根据用户填写的退款理由以及相应录像审核退款申请，请如实填写；</view>
+      <view class='right_tip'>每笔订单退款金额不得高于订单总价；</view>
+      <view class='right_tip'>优惠券参与的订单，退款金额根据对应比例退还。</view>
+      <view class='right_tip'>如退款失败，请致电客服热线
+        <text>400-0266-667</text>咨询详情。</view>
+    </view>
+  </view>
+  <block a:if="{{refunding == 0}}">
+    <view class="{{submitFlag ? 'up_submit':'up_submit_down'}}" catchTap='refund_submit'>提交申请</view>
+  </block>
+  <block a:else>
+    <block a:if="{{ofrderStatus== 0}}">
+      <view class='up_submit1'><text>审核中</text></view>
+    </block>
+    <block a:if="{{ofrderStatus == 1}}">
+      <view class='up_submit2'>退款成功</view>
+    </block>
+    <block a:if="{{ofrderStatus == 2}}">
+      <view class='up_submit3'>退款失败</view>
+    </block>
+  </block>
+</view>

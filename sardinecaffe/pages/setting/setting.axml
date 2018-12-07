@@ -1,0 +1,6 @@
+<view class="wrap">
+  <view style="border-bottom: 1px solid #f2f2f2;margin-top: 12px;">
+    <!-- <navigator url="../privacy/privacy" hover-class="navigator-hover" class="itemCellBox rec">            隐私        </navigator> -->
+    <navigator url="../about/about" hover-class="navigator-hover" class="itemCellBox rec">            关于沙丁鱼        </navigator>
+  </view>
+</view>

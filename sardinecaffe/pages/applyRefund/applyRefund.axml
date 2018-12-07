@@ -1,0 +1,67 @@
+<view class='wrap'>
+  <view class='order_out'>
+    <view class='data_num'>
+      <view class='order_data'>{{orderdetail.addtime}}</view>
+      <view class='order_num'>{{orderdetail.orderno}}</view>
+    </view>
+    <block a:for="{{goodsList}}" a:key="{{index}}">
+      <view class='checkbox_group'>
+        <checkbox-group class="checkbox_in">
+          <view class='checkbox_left' data-index="{{index}}" catchTap='check_good'>
+            <view class='checkbox_out'>
+              <label class="box_label {{item.check ? 'active':''}}">
+                <checkbox value="" color="transparent" hidden="true" checked="" />
+              </label>
+            </view>
+            <view class='goods_img'>
+              <image src='{{item.img}}' mode="aspectFit"></image>
+            </view>
+          </view>
+          <view class='checkbox_right'>
+            <view class='goods_dec'>
+              <view class='goods_name'>
+                {{item.name}}
+              </view>
+              <view class='goods_price'>
+                <text class='goods_price_sign'>￥</text>{{item.price}}
+              </view>
+              <view class='goods_num'>
+                <view class="{{item.checkNum < item.num || item.checkNum == 1 ? 'reduce_num_down' : 'reduce_num'}}" data-index="{{index}}" catchTap="reduce_num"> </view>
+                <view class='num'>{{item.checkNum}}</view>
+                <view class="{{item.checkNum == item.num ? 'add_num_down' : 'add_num'}}" data-index="{{index}}" catchTap='add_num'> </view>
+              </view>
+            </view>
+          </view>
+        </checkbox-group>
+      </view>
+    </block>
+    <view class='goods_detail'>
+      <view class='detail'>
+        <view class='detail_text'>优惠金额</view>
+        <view class='detail_num detail_num_1'>
+          <text class='num_sign'>-￥</text>{{orderdetail.discounted_money || 0}}</view>
+      </view>
+      <block a:if="{{orderdetail.card_money !='0.00'}}">
+        <view class='detail'>
+          <view class='detail_text'>轻食券</view>
+          <view class='detail_num detail_num_1'>
+            <text class='num_sign'>-￥</text>{{orderdetail.card_money}}</view>
+        </view>
+      </block>
+
+      <view class='detail'>
+        <view class='detail_text'>实付退款</view>
+        <view class='detail_num detail_num_2'>
+          <text class='num_sign_2'>￥</text>{{Refundprice}}</view>
+      </view>
+      <view class='detail'>
+        <view class='detail_text'>退款方式</view>
+        <view class='detail_num'>原路返回</view>
+      </view>
+      <view class='cancel_sure'>
+        <view class='cancel' catchTap='cancel'>取消</view>
+        <view class="sure {{showBtn ?'sureactive':''}}" catchTap='sure'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>
